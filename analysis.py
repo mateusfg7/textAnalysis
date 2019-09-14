@@ -58,7 +58,9 @@ def analise_de_sentimento():
     client = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
     algo = client.algo('nlp/SocialSentimentAnalysis/0.1.4')
     
-    print(algo.pipe(input).result)
+    retorno = algo.pipe(input).result
+
+    print("Positivo: {}\nNegativo: {}\nNeutro: {}".format(retorno[0]['positive'], retorno[0]['negative'], retorno[0]['neutral']))
     openFile.close()
 
 
