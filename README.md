@@ -8,3 +8,10 @@
 - Obter grau de sentimentos positivos, negativos e neutros.
 
 - Resumir um texto.
+
+## Dependencias:
+
+**Algorithmia**
+```
+pip3 install algorithmia
+```
