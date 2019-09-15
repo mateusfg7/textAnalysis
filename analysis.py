@@ -2,6 +2,7 @@ import sys
 
 try:
     import Algorithmia
+    client = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
 except ModuleNotFoundError:
     print("Biblioteca 'Algorithmia' não foi encontrada.")
     print("tente: pip3 install algorithmia")
@@ -17,97 +18,55 @@ except ModuleNotFoundError:
 
 
 
-
-
-def pegar_tags():
+def ler_arquivo():
     arquivo = sys.argv[2]
-
+    
     try:
         openFile = open('{}'.format(arquivo), 'r')
+        openFile.close
     except FileNotFoundError:
         print('Arquivo não encontrado!')
         sys.exit(1)
     
-    input = openFile.read()
+    return openFile.read()
 
-    client = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
+
+
+def pegar_tags():    
+    input = ler_arquivo()
     algo = client.algo('nlp/AutoTag/1.0.1')
-
     print(algo.pipe(input).result)
-    openFile.close
-
 
 
 def analise_de_sentimento():
-    
-    arquivo = sys.argv[2]
-
-    try:
-        openFile = open('{}'.format(arquivo), 'r')
-    except FileNotFoundError:
-        print('Arquivo não encontrado!')
-        sys.exit(1)
-
-    sentenca = openFile.read()
+    sentenca = ler_arquivo()
     traduzido = translator.translate(sentenca, dest='en')
-
 
     input = {
     "sentence": traduzido.text
     }
 
-    client = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
     algo = client.algo('nlp/SocialSentimentAnalysis/0.1.4')
-    
     retorno = algo.pipe(input).result
 
     print("Positivo: {}\nNegativo: {}\nNeutro: {}".format(retorno[0]['positive'], retorno[0]['negative'], retorno[0]['neutral']))
-    openFile.close()
 
 
 def resumir_texto():
-
-    arquivo = sys.argv[2]
-
-    try:
-        openFile = open('{}'.format(arquivo), 'r')
-    except FileNotFoundError:
-        print('Arquivo não encontrado!')
-        sys.exit(1)
-    
-    texto = openFile.read()
+    texto = ler_arquivo()
     input = translator.translate(texto, dest='en')
 
-    client = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
     algo = client.algo('nlp/Summarizer/0.1.8')
-    
     resultado = algo.pipe(input.text).result
-
     traducao = translator.translate(resultado, dest='pt')
+    
     print(traducao.text)
-    openFile.close
 
 
 def contar_palavras():
-    
-    arquivo = sys.argv[2]
-
-    try:
-        openFile = open('{}'.format(arquivo), 'r')
-    except FileNotFoundError:
-        print('Arquivo não encontrado!')
-        sys.exit(1)
-
-    texto = openFile.read()
-    openFile.close
-    
-    input = texto
-    client = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
+    input = ler_arquivo()
     algo = client.algo('diego/WordCounter/0.1.0')
     print(algo.pipe(input).result)
-
-
-
 
 
 
