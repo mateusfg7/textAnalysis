@@ -73,11 +73,17 @@ def resumir():
         print('Arquivo não encontrado!')
         sys.exit(1)
     
-    input = openFile.read()
+    texto = openFile.read()
+    input = translator.translate(texto, dest='en')
 
     client = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
     algo = client.algo('nlp/Summarizer/0.1.8')
-    print(algo.pipe(input).result)
+    
+    resultado = algo.pipe(input.text).result
+
+    traducao = translator.translate(resultado, dest='pt')
+    print(traducao.text)
+    
 
 
 

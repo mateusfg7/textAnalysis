@@ -6,3 +6,5 @@
 - Obter tags apartir de um texto.
 
 - Obter grau de sentimentos positivos, negativos e neutros.
+
+- Resumir um texto.
