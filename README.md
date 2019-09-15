@@ -3,6 +3,6 @@
 
 ## Funções:
 
-> Obter tags apartir de um texto.
+- Obter tags apartir de um texto.
 
-> Obter grau de sentimentos positivos, negativos e neutros.
+- Obter grau de sentimentos positivos, negativos e neutros.

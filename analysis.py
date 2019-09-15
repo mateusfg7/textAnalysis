@@ -63,6 +63,23 @@ def analise_de_sentimento():
     print("Positivo: {}\nNegativo: {}\nNeutro: {}".format(retorno[0]['positive'], retorno[0]['negative'], retorno[0]['neutral']))
     openFile.close()
 
+def resumir():
+
+    arquivo = sys.argv[2]
+
+    try:
+        openFile = open('{}'.format(arquivo), 'r')
+    except FileNotFoundError:
+        print('Arquivo não encontrado!')
+        sys.exit(1)
+    
+    input = openFile.read()
+
+    client = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
+    algo = client.algo('nlp/Summarizer/0.1.8')
+    print(algo.pipe(input).result)
+
+
 
 
 # MAIN
@@ -70,11 +87,15 @@ if sys.argv[1] == "-t" :
     pegar_tags()
 elif sys.argv[1] == "-s" :
     analise_de_sentimento()
+elif sys.argv[1] == "-r":
+    resumir()
 else:
     print("""
+    Use: analysis.py [opção] [arquivo]
+
     -t  pegar tags apartir de um texto
-        analysis.py -t [arquivo]
     
     -s  obter sentimentos negativos, positivos e neutros apartir de um texto
-        analysis.py -s [arquivo]
+
+    -r  resumir um texto
     """)
