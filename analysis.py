@@ -37,6 +37,7 @@ def pegar_tags():
     openFile.close
 
 
+
 def analise_de_sentimento():
     
     arquivo = sys.argv[2]
@@ -63,7 +64,8 @@ def analise_de_sentimento():
     print("Positivo: {}\nNegativo: {}\nNeutro: {}".format(retorno[0]['positive'], retorno[0]['negative'], retorno[0]['neutral']))
     openFile.close()
 
-def resumir():
+
+def resumir_texto():
 
     arquivo = sys.argv[2]
 
@@ -86,6 +88,26 @@ def resumir():
     openFile.close
 
 
+def contar_palavras():
+    
+    arquivo = sys.argv[2]
+
+    try:
+        openFile = open('{}'.format(arquivo), 'r')
+    except FileNotFoundError:
+        print('Arquivo não encontrado!')
+        sys.exit(1)
+
+    texto = openFile.read()
+    openFile.close
+    
+    input = texto
+    client = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
+    algo = client.algo('diego/WordCounter/0.1.0')
+    print(algo.pipe(input).result)
+
+
+
 
 
 
@@ -95,7 +117,9 @@ if sys.argv[1] == "-t" :
 elif sys.argv[1] == "-s" :
     analise_de_sentimento()
 elif sys.argv[1] == "-r":
-    resumir()
+    resumir_texto()
+elif sys.argv[1] == "-c":
+    contar_palavras()
 else:
     print("""
     Use: analysis.py [opção] [arquivo]
@@ -105,4 +129,6 @@ else:
     -s  obter sentimentos negativos, positivos e neutros apartir de um texto
 
     -r  resumir um texto
+
+    -c  contar palavras contidas em um texto
     """)
