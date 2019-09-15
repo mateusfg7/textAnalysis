@@ -83,7 +83,8 @@ def resumir():
 
     traducao = translator.translate(resultado, dest='pt')
     print(traducao.text)
-    
+    openFile.close
+
 
 
 
