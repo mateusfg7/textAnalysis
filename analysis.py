@@ -43,27 +43,18 @@ def pegar_tags():
 
 def analise_de_sentimento():
     sentenca = ler_arquivo()
-    traduzido = translator.translate(sentenca, dest='en')
-
-    input = {
-    "sentence": traduzido.text
-    }
-
+    input = {"sentence": traduzir('en', sentenca)}
     algo = client.algo('nlp/SocialSentimentAnalysis/0.1.4')
     retorno = algo.pipe(input).result
-
     print("Positivo: {}\nNegativo: {}\nNeutro: {}".format(retorno[0]['positive'], retorno[0]['negative'], retorno[0]['neutral']))
 
 
 def resumir_texto():
     texto = ler_arquivo()
-    input = translator.translate(texto, dest='en')
-
+    input = traduzir('en', texto)
     algo = client.algo('nlp/Summarizer/0.1.8')
-    resultado = algo.pipe(input.text).result
-    traducao = translator.translate(resultado, dest='pt')
-    
-    print(traducao.text)
+    resultado = algo.pipe(input).result
+    print(traduzir('pt', resultado))
 
 
 def contar_palavras():
@@ -73,10 +64,7 @@ def contar_palavras():
 
 def reconhecimento_de_entidades():
     texto = traduzir('en', ler_arquivo())
-
-    input = {
-        "document": texto
-    }
+    input = {"document": texto}
     algo = client.algo('StanfordNLP/NamedEntityRecognition/0.2.0')
     resultado = algo.pipe(input).result
 
@@ -88,7 +76,7 @@ def reconhecimento_de_entidades():
         sys.exit(1)
     else:
         for name in wordlist:
-            print('Nome: {} | Entidade: {}'.format(name['word'], traduzir('pt', name['entity'])))
+            print('Nome: {} \nEntidade: {}\n'.format(name['word'], traduzir('pt', name['entity']).capitalize()))
 
 
 
