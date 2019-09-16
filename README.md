@@ -17,3 +17,7 @@
 ```
 pip3 install algorithmia
 ```
+**GoogleTrans**
+```
+pip3 install googletran
+```
