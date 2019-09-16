@@ -18,16 +18,19 @@ except ModuleNotFoundError:
 
 
 
+def traduzir(language, text):
+    return translator.translate(text, dest=language).text
+
+
+
 def ler_arquivo():
     arquivo = sys.argv[2]
-    
     try:
         openFile = open('{}'.format(arquivo), 'r')
         openFile.close
     except FileNotFoundError:
         print('Arquivo não encontrado!')
         sys.exit(1)
-    
     return openFile.read()
 
 
@@ -68,6 +71,25 @@ def contar_palavras():
     algo = client.algo('diego/WordCounter/0.1.0')
     print(algo.pipe(input).result)
 
+def reconhecimento_de_entidades():
+    texto = traduzir('en', ler_arquivo())
+
+    input = {
+        "document": texto
+    }
+    algo = client.algo('StanfordNLP/NamedEntityRecognition/0.2.0')
+    resultado = algo.pipe(input).result
+
+    numeroDeEntidadesEncontradas = len(resultado['sentences'])
+    wordlist = resultado['sentences'][numeroDeEntidadesEncontradas - 1]['detectedEntities']
+
+    if len(wordlist) == 0:
+        print("Não foram encontradas nenhuma entidade.")
+        sys.exit(1)
+    else:
+        for name in wordlist:
+            print('Nome: {} | Entidade: {}'.format(name['word'], traduzir('pt', name['entity'])))
+
 
 
 # MAIN
@@ -79,6 +101,8 @@ elif sys.argv[1] == "-r":
     resumir_texto()
 elif sys.argv[1] == "-c":
     contar_palavras()
+elif sys.argv[1] == "-e":
+    reconhecimento_de_entidades()
 else:
     print("""
     Use: analysis.py [opção] [arquivo]
@@ -90,4 +114,6 @@ else:
     -r  resumir um texto
 
     -c  contar palavras contidas em um texto
+
+    -e  reconhecer nomes de entidades
     """)

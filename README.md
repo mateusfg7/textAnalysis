@@ -9,6 +9,8 @@
 
 - Resumir um texto.
 
+- Obter nomes de entidades presentes no texto.
+
 ## Dependencias:
 
 **Algorithmia**
