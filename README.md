@@ -11,6 +11,8 @@
 
 - Obter nomes de entidades presentes no texto.
 
+- Obter a frequência de determinadas palavras em um texto.
+
 ## Dependencias:
 
 **Algorithmia**
