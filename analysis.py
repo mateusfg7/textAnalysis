@@ -29,7 +29,10 @@ def ler_arquivo():
         openFile = open('{}'.format(arquivo), 'r')
         openFile.close
     except FileNotFoundError:
-        print('Arquivo não encontrado!')
+        if arquivo == 'analysis.py0':
+            print('Nenhum arquivo foi passado!')
+        else:
+            print('Arquivo "{}" não encontrado!'.format(arquivo))
         sys.exit(1)
     return openFile.read()
 
@@ -79,7 +82,26 @@ def reconhecimento_de_entidades():
             print('Nome: {} \nEntidade: {}\n'.format(name['word'], traduzir('pt', name['entity']).capitalize()))
 
 def frequencia_de_palavras():
-    return True
+    texto = ler_arquivo()
+    try:
+        wordCount = int(sys.argv[3])
+    except:
+        print("Você não indicou o número de palavras analisadas!")
+        print("analysis.py -f {} [numero de palavras analisadas]".format(sys.argv[2]))
+        sys.exit(1)
+    input = [
+        texto,
+        wordCount,
+        True,
+        True
+    ]
+    algo = client.algo('WebPredict/WordFrequencies/0.1.0')
+    resultado = algo.pipe(input).result
+    count = 1
+    for palavra in resultado:
+        print('{}ª Palavra: {}'.format(count, palavra['word']))
+        print('Frequência: {}\n'.format(palavra['frequency']))
+        count += 1
 
 
 
@@ -110,5 +132,6 @@ else:
 
     -e  reconhecer nomes de entidades
 
-    -f calcular a frequência das 10 palavras mais comuns de um texto
+    -f calcular a frequência das n palavras mais comuns de um texto
+        analysis.py -f [arquivo] [numero de palavras analisadas]
     """)
