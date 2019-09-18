@@ -78,6 +78,9 @@ def reconhecimento_de_entidades():
         for name in wordlist:
             print('Nome: {} \nEntidade: {}\n'.format(name['word'], traduzir('pt', name['entity']).capitalize()))
 
+def frequencia_de_palavras():
+    return True
+
 
 
 # MAIN
@@ -91,6 +94,8 @@ elif sys.argv[1] == "-c":
     contar_palavras()
 elif sys.argv[1] == "-e":
     reconhecimento_de_entidades()
+elif sys.argv[1] == "-f":
+    frequencia_de_palavras()
 else:
     print("""
     Use: analysis.py [opção] [arquivo]
@@ -104,4 +109,6 @@ else:
     -c  contar palavras contidas em um texto
 
     -e  reconhecer nomes de entidades
+
+    -f calcular a frequência das 10 palavras mais comuns de um texto
     """)
