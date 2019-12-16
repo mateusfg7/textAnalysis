@@ -7,22 +7,11 @@ except ModuleNotFoundError:
     print("Biblioteca 'Algorithmia' não foi encontrada.")
     print("tente: pip3 install algorithmia")
     sys.exit(1)
-
-try:
-    from googletrans import Translator
-    translator = Translator()
-except ModuleNotFoundError:
-    print("Biblioteca 'googletrans' não foi encontrada.")
-    print("tente: pip3 install googletrans")
-    sys.exit(1)
+   sys.exit(1)
 
 
 from functions.pegar_tags import pegar_tags
-
-
-
-def traduzir(language, text):
-    return translator.translate(text, dest=language).text
+from functions.analise_de_sentimento import analise_de_sentimento
 
 
 
@@ -38,14 +27,6 @@ def ler_arquivo():
             print('Arquivo "{}" não encontrado!'.format(arquivo))
         sys.exit(1)
     return openFile.read()
-
-
-def analise_de_sentimento():
-    sentenca = ler_arquivo()
-    input = {"sentence": traduzir('en', sentenca)}
-    algo = client.algo('nlp/SocialSentimentAnalysis/0.1.4')
-    retorno = algo.pipe(input).result
-    print("Positivo: {}\nNegativo: {}\nNeutro: {}".format(retorno[0]['positive'], retorno[0]['negative'], retorno[0]['neutral']))
 
 
 def resumir_texto():
@@ -105,15 +86,15 @@ def frequencia_de_palavras():
 if sys.argv[1] == "-t" :
     pegar_tags(client, ler_arquivo())
 elif sys.argv[1] == "-s" :
-    analise_de_sentimento()
+    analise_de_sentimento(client, ler_arquivo())
 elif sys.argv[1] == "-r":
-    resumir_texto()
+    resumir_texto(client, ler_arquivo())
 elif sys.argv[1] == "-c":
-    contar_palavras()
+    contar_palavras(client, ler_arquivo())
 elif sys.argv[1] == "-e":
-    reconhecimento_de_entidades()
+    reconhecimento_de_entidades(client, ler_arquivo())
 elif sys.argv[1] == "-f":
-    frequencia_de_palavras()
+    frequencia_de_palavras(client, ler_arquivo())
 else:
     print("""
     Use: analysis.py [opção] [arquivo]
