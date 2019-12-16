@@ -7,11 +7,13 @@ except ModuleNotFoundError:
     print("Biblioteca 'Algorithmia' não foi encontrada.")
     print("tente: pip3 install algorithmia")
     sys.exit(1)
-   sys.exit(1)
 
+
+from translate.traduzir import traduzir
 
 from functions.pegar_tags import pegar_tags
 from functions.analise_de_sentimento import analise_de_sentimento
+from functions.resumir_texto import resumir_texto
 
 
 
@@ -27,14 +29,6 @@ def ler_arquivo():
             print('Arquivo "{}" não encontrado!'.format(arquivo))
         sys.exit(1)
     return openFile.read()
-
-
-def resumir_texto():
-    texto = ler_arquivo()
-    input = traduzir('en', texto)
-    algo = client.algo('nlp/Summarizer/0.1.8')
-    resultado = algo.pipe(input).result
-    print(traduzir('pt', resultado))
 
 
 def contar_palavras():
@@ -85,16 +79,22 @@ def frequencia_de_palavras():
 # MAIN
 if sys.argv[1] == "-t" :
     pegar_tags(client, ler_arquivo())
+
 elif sys.argv[1] == "-s" :
     analise_de_sentimento(client, ler_arquivo())
+
 elif sys.argv[1] == "-r":
     resumir_texto(client, ler_arquivo())
+
 elif sys.argv[1] == "-c":
-    contar_palavras(client, ler_arquivo())
+    contar_palavras()
+
 elif sys.argv[1] == "-e":
-    reconhecimento_de_entidades(client, ler_arquivo())
+    reconhecimento_de_entidades()
+
 elif sys.argv[1] == "-f":
-    frequencia_de_palavras(client, ler_arquivo())
+    frequencia_de_palavras()
+
 else:
     print("""
     Use: analysis.py [opção] [arquivo]
