@@ -17,6 +17,9 @@ except ModuleNotFoundError:
     sys.exit(1)
 
 
+from functions.pegar_tags import pegar_tags
+
+
 
 def traduzir(language, text):
     return translator.translate(text, dest=language).text
@@ -35,13 +38,6 @@ def ler_arquivo():
             print('Arquivo "{}" não encontrado!'.format(arquivo))
         sys.exit(1)
     return openFile.read()
-
-
-
-def pegar_tags():    
-    input = ler_arquivo()
-    algo = client.algo('nlp/AutoTag/1.0.1')
-    print(algo.pipe(input).result)
 
 
 def analise_de_sentimento():
@@ -107,7 +103,7 @@ def frequencia_de_palavras():
 
 # MAIN
 if sys.argv[1] == "-t" :
-    pegar_tags()
+    pegar_tags(client, ler_arquivo())
 elif sys.argv[1] == "-s" :
     analise_de_sentimento()
 elif sys.argv[1] == "-r":
