@@ -1,4 +1,4 @@
-# Text Analysis
+# Text Analysis  :squirrel:
 ### _programa em python que realisa análise em texto usando recursos da API [Algorithmia](https://algorithmia.com)_
 
 ## Funções:
