@@ -15,6 +15,7 @@ from functions.pegar_tags import pegar_tags
 from functions.analise_de_sentimento import analise_de_sentimento
 from functions.resumir_texto import resumir_texto
 from functions.contar_palavras import contar_palavras
+from functions.reconhecimento_de_entidades import reconhecimento_de_entidades
 
 
 
@@ -30,22 +31,6 @@ def ler_arquivo():
             print('Arquivo "{}" não encontrado!'.format(arquivo))
         sys.exit(1)
     return openFile.read()
-
-def reconhecimento_de_entidades():
-    texto = traduzir('en', ler_arquivo())
-    input = {"document": texto}
-    algo = client.algo('StanfordNLP/NamedEntityRecognition/0.2.0')
-    resultado = algo.pipe(input).result
-
-    numeroDeEntidadesEncontradas = len(resultado['sentences'])
-    wordlist = resultado['sentences'][numeroDeEntidadesEncontradas - 1]['detectedEntities']
-
-    if len(wordlist) == 0:
-        print("Não foram encontradas nenhuma entidade.")
-        sys.exit(1)
-    else:
-        for name in wordlist:
-            print('Nome: {} \nEntidade: {}\n'.format(name['word'], traduzir('pt', name['entity']).capitalize()))
 
 def frequencia_de_palavras():
     texto = ler_arquivo()
@@ -85,7 +70,7 @@ elif sys.argv[1] == "-c":
     contar_palavras(client, ler_arquivo())
 
 elif sys.argv[1] == "-e":
-    reconhecimento_de_entidades()
+    reconhecimento_de_entidades(client, ler_arquivo())
 
 elif sys.argv[1] == "-f":
     frequencia_de_palavras()
