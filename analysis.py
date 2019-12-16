@@ -9,50 +9,33 @@ except ModuleNotFoundError:
     sys.exit(1)
 
 
-from translate.traduzir import traduzir
-
 from functions.pegar_tags import pegar_tags
 from functions.analise_de_sentimento import analise_de_sentimento
 from functions.resumir_texto import resumir_texto
 from functions.contar_palavras import contar_palavras
 from functions.reconhecimento_de_entidades import reconhecimento_de_entidades
+from functions.frequencia_de_palavras import frequencia_de_palavras
 
 
 
 def ler_arquivo():
+
     arquivo = sys.argv[2]
+
     try:
+
         openFile = open('{}'.format(arquivo), 'r')
         openFile.close
+        
     except FileNotFoundError:
+
         if arquivo == 'analysis.py0':
             print('Nenhum arquivo foi passado!')
         else:
             print('Arquivo "{}" não encontrado!'.format(arquivo))
         sys.exit(1)
-    return openFile.read()
 
-def frequencia_de_palavras():
-    texto = ler_arquivo()
-    try:
-        wordCount = int(sys.argv[3])
-    except:
-        print("Você não indicou o número de palavras analisadas!")
-        print("analysis.py -f {} [numero de palavras analisadas]".format(sys.argv[2]))
-        sys.exit(1)
-    input = [
-        texto,
-        wordCount,
-        True,
-        True
-    ]
-    algo = client.algo('WebPredict/WordFrequencies/0.1.0')
-    resultado = algo.pipe(input).result
-    count = 1
-    for palavra in resultado:
-        print('{}ª Palavra: {}'.format(count, palavra['word']))
-        print('Frequência: {}\n'.format(palavra['frequency']))
-        count += 1
+    return openFile.read()
 
 
 
@@ -73,7 +56,7 @@ elif sys.argv[1] == "-e":
     reconhecimento_de_entidades(client, ler_arquivo())
 
 elif sys.argv[1] == "-f":
-    frequencia_de_palavras()
+    frequencia_de_palavras(client, ler_arquivo())
 
 else:
     print("""
