@@ -14,6 +14,7 @@ from translate.traduzir import traduzir
 from functions.pegar_tags import pegar_tags
 from functions.analise_de_sentimento import analise_de_sentimento
 from functions.resumir_texto import resumir_texto
+from functions.contar_palavras import contar_palavras
 
 
 
@@ -31,10 +32,10 @@ def ler_arquivo():
     return openFile.read()
 
 
-def contar_palavras():
-    input = ler_arquivo()
-    algo = client.algo('diego/WordCounter/0.1.0')
-    print(algo.pipe(input).result)
+# def contar_palavras():
+#     input = ler_arquivo()
+#     algo = client.algo('diego/WordCounter/0.1.0')
+#     print(algo.pipe(input).result)
 
 def reconhecimento_de_entidades():
     texto = traduzir('en', ler_arquivo())
@@ -87,7 +88,7 @@ elif sys.argv[1] == "-r":
     resumir_texto(client, ler_arquivo())
 
 elif sys.argv[1] == "-c":
-    contar_palavras()
+    contar_palavras(client, ler_arquivo())
 
 elif sys.argv[1] == "-e":
     reconhecimento_de_entidades()
