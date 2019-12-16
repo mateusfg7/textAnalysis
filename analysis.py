@@ -31,12 +31,6 @@ def ler_arquivo():
         sys.exit(1)
     return openFile.read()
 
-
-# def contar_palavras():
-#     input = ler_arquivo()
-#     algo = client.algo('diego/WordCounter/0.1.0')
-#     print(algo.pipe(input).result)
-
 def reconhecimento_de_entidades():
     texto = traduzir('en', ler_arquivo())
     input = {"document": texto}
