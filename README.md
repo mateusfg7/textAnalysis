@@ -1,9 +1,9 @@
 # Text Analysis  :squirrel:
-### _programa em python que realisa análise em texto usando recursos da API [Algorithmia](https://algorithmia.com)_
+### _Programa em python que realiza análise em texto usando recursos da API [Algorithmia](https://algorithmia.com)_
 
 ## Funções:
 
-- Obter tags apartir de um texto.
+- Obter tags a partir de um texto.
 
 - Obter grau de sentimentos positivos, negativos e neutros.
 
@@ -13,7 +13,7 @@
 
 - Obter a frequência de determinadas palavras em um texto.
 
-## Dependencias:
+## Dependências:
 
 **Algorithmia**
 ```
