@@ -1,7 +1,9 @@
 # Text Analysis  :squirrel:
 ### _Programa em python que realiza análise em texto usando recursos da API [Algorithmia](https://algorithmia.com)_
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/mateusfg7/textAnalysis)
-[![Funções](https://img.shields.io/badge/go%20to-fun%C3%A7%C3%B5es-blue?style=flat)](#funções)
+[![Funções](https://img.shields.io/badge/go%20to-fun%C3%A7%C3%B5es-blueviolet?style=flat)](#funções)
+[![Dependencias](https://img.shields.io/badge/go%20to%20-depend%C3%AAncias-success?style=flat)](#dependências)
+[![Uso](https://img.shields.io/badge/go%20to-uso-ff69b4?style=flat)](#uso)
 ---
 ## Funções:
 
