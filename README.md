@@ -57,7 +57,7 @@ _out:_
 ['após', 'computação', 'foi', 'para', 'pela', 'química', 'turing', 'uma']
 ```
 
-2 - pegar a frequência das palavras mais comuns em um texto no arquivo 'texto.txt'
+2 - pegar a frequência das palavras mais comuns em um texto no arquivo 'turing.txt'
 
 _in:_
 
