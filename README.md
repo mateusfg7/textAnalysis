@@ -43,12 +43,12 @@ pip3 install googletran
 
 **Exêmplos de uso:**
 
-1 - extrair tags em um texto no arquivo 'teste.txt' 
+1 - extrair tags em um texto no arquivo 'turing.txt' 
 
 _in:_
 
 ```shell
-$ python3 analysis.py -t teste.txt
+$ python3 analysis.py -t turing.txt
 ```
 
 _out:_
@@ -62,7 +62,7 @@ _out:_
 _in:_
 
 ```shell
-$ python3 analysis.py -f teste.txt 10
+$ python3 analysis.py -f turing.txt 10
 ```
 
 _out:_
