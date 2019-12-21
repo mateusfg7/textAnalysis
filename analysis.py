@@ -38,32 +38,34 @@ def ler_arquivo():
     return openFile.read()
 
 
+def menu():
+    if sys.argv[1] == "-t" :
+        pegar_tags(client, ler_arquivo())
 
-# MAIN
-if sys.argv[1] == "-t" :
-    pegar_tags(client, ler_arquivo())
+    elif sys.argv[1] == "-s" :
+        analise_de_sentimento(client, ler_arquivo())
 
-elif sys.argv[1] == "-s" :
-    analise_de_sentimento(client, ler_arquivo())
+    elif sys.argv[1] == "-r":
+        resumir_texto(client, ler_arquivo())
 
-elif sys.argv[1] == "-r":
-    resumir_texto(client, ler_arquivo())
+    elif sys.argv[1] == "-c":
+        contar_palavras(client, ler_arquivo())
 
-elif sys.argv[1] == "-c":
-    contar_palavras(client, ler_arquivo())
+    elif sys.argv[1] == "-e":
+        reconhecimento_de_entidades(client, ler_arquivo())
 
-elif sys.argv[1] == "-e":
-    reconhecimento_de_entidades(client, ler_arquivo())
+    elif sys.argv[1] == "-f":
+        frequencia_de_palavras(client, ler_arquivo())
 
-elif sys.argv[1] == "-f":
-    frequencia_de_palavras(client, ler_arquivo())
 
-else:
+try:
+    menu()
+except IndexError:
     print("""
     Use: analysis.py [opção] [arquivo]
 
     -t  pegar tags apartir de um texto
-    
+
     -s  obter sentimentos negativos, positivos e neutros apartir de um texto
 
     -r  resumir um texto
