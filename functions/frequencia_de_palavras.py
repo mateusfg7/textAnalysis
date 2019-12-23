@@ -13,8 +13,8 @@ def frequencia_de_palavras(client, texto):
         True,
         True
     ]
-    algo = client.algo('WebPredict/WordFrequencies/0.1.0')
-    resultado = algo.pipe(input).result
+    algoritimo = client.algo('WebPredict/WordFrequencies/0.1.0')
+    resultado = algoritimo.pipe(input).result
     count = 1
     for palavra in resultado:
         print('{}ª Palavra: {}'.format(count, palavra['word']))

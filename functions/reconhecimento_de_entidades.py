@@ -3,8 +3,8 @@ from translate.traduzir import traduzir
 def reconhecimento_de_entidades(client, arquivo):
     texto = traduzir('en', arquivo)
     input = {"document": texto}
-    algo = client.algo('StanfordNLP/NamedEntityRecognition/0.2.0')
-    resultado = algo.pipe(input).result
+    algoritimo = client.algo('StanfordNLP/NamedEntityRecognition/0.2.0')
+    resultado = algoritimo.pipe(input).result
 
     numeroDeEntidadesEncontradas = len(resultado['sentences'])
     wordlist = resultado['sentences'][numeroDeEntidadesEncontradas - 1]['detectedEntities']
