@@ -24,8 +24,8 @@ def ler_arquivo():
 
     try:
 
-        openFile = open('{}'.format(arquivo), 'r')
-        openFile.close
+        with open(arquivo, 'r') as openFile:
+            return openFile.read()
         
     except FileNotFoundError:
 
@@ -33,9 +33,7 @@ def ler_arquivo():
             print('Nenhum arquivo foi passado!')
         else:
             print('Arquivo "{}" não encontrado!'.format(arquivo))
-        sys.exit(1)
-
-    return openFile.read()
+        exit()
 
 
 def menu():
@@ -61,7 +59,8 @@ def menu():
 try:
     menu()
 except IndexError:
-    print("""
+    print(
+    """
     Use: analysis.py [opção] [arquivo]
 
     -t  pegar tags apartir de um texto
@@ -76,4 +75,5 @@ except IndexError:
 
     -f calcular a frequência das n palavras mais comuns de um texto
         analysis.py -f [arquivo] [numero de palavras analisadas]
-    """)
+    """
+    )
