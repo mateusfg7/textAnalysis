@@ -19,6 +19,14 @@
 
 ## Dependências:
 
+### _Instale usando o arquivo de dependências do Python:_
+```
+python3 -m pip install -r requirements.txt
+```
+### **Ou**
+
+### _instale as dependências separadamente:_
+
 **Algorithmia**
 ```
 pip3 install algorithmia
