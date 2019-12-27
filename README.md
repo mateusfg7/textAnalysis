@@ -3,10 +3,16 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/mateusfg7/textanalysis/badge)](https://www.codefactor.io/repository/github/mateusfg7/textanalysis)
 
-[![Funções](https://img.shields.io/badge/go%20to-fun%C3%A7%C3%B5es-blueviolet?style=flat)](#funções)
-[![Dependencias](https://img.shields.io/badge/go%20to%20-depend%C3%AAncias-success?style=flat)](#dependências)
-[![Uso](https://img.shields.io/badge/go%20to-uso-ff69b4?style=flat)](#uso)
+_Index_
+    
+1. [Funções](#funções)
+2. [Dependências](#dependências)
+    - [Arquivo de Dependências](#instale-usando-o-arquivo-de-dependências-do-python)
+    - [Dependências Separadas](#instale-as-dependências-separadamente)
+3. [Uso](#uso)
+    - [Exêmplos de Uso](#exêmplos-de-uso)
 ---
+
 ## Funções:
 
 - Obter tags a partir de um texto.
@@ -55,7 +61,7 @@ pip3 install googletran
 `-f` calcular a frequência das n palavras mais comuns de um texto
 (`analysis.py -f [arquivo] [nº de palavras analisadas]`)
 
-**Exêmplos de uso:**
+#### Exêmplos de uso:
 
 1 - extrair tags em um texto no arquivo 'turing.txt' 
 
