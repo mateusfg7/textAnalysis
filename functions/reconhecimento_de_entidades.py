@@ -13,7 +13,7 @@ def reconhecimento_de_entidades(client, arquivo):
         numeroDeEntidadesEncontradas = len(resultado['sentences'])
         wordlist = resultado['sentences'][numeroDeEntidadesEncontradas - 1]['detectedEntities']
 
-        if len(wordlist) == 0:
+        if not wordlist:
             print("Não foram encontradas nenhuma entidade.")
             exit()
         else:
