@@ -4,11 +4,11 @@ def reconhecimento_de_entidades(client, arquivo):
     
     if arquivo:
 
-        texto = traduzir('en', arquivo)
-        input = {"document": texto}
+        textoTraduzido = traduzir('en', arquivo)
+        textoBase = {"document": textoTraduzido}
 
         algoritimo = client.algo('StanfordNLP/NamedEntityRecognition/0.2.0')
-        resultado = algoritimo.pipe(input).result
+        resultado = algoritimo.pipe(textoBase).result
 
         numeroDeEntidadesEncontradas = len(resultado['sentences'])
         wordlist = resultado['sentences'][numeroDeEntidadesEncontradas - 1]['detectedEntities']
