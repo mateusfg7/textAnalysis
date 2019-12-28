@@ -2,7 +2,7 @@ from translate.traduzir import traduzir
 
 def reconhecimento_de_entidades(client, arquivo):
     
-    if len(arquivo) != 0:
+    if arquivo:
 
         texto = traduzir('en', arquivo)
         input = {"document": texto}
