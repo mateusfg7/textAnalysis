@@ -8,6 +8,8 @@ except ModuleNotFoundError:
     print("tente: pip3 install algorithmia")
     sys.exit(1)
 
+from connection import checkInternetConnection as netCheck
+from connection import internetFailWarning as netWarning
 
 from functions.pegar_tags import pegar_tags
 from functions.analise_de_sentimento import analise_de_sentimento
@@ -38,22 +40,40 @@ def ler_arquivo():
 
 def menu():
     if sys.argv[1] == "-t" :
-        pegar_tags(client, ler_arquivo())
+        if netCheck() == True:
+            pegar_tags(client, ler_arquivo())
+        else:
+            netWarning()
 
     elif sys.argv[1] == "-s" :
-        analise_de_sentimento(client, ler_arquivo())
-
+        if netCheck() == True:
+            analise_de_sentimento(client, ler_arquivo())
+        else:
+            netWarning()
+        
     elif sys.argv[1] == "-r":
-        resumir_texto(client, ler_arquivo())
+        if netCheck() == True:
+            resumir_texto(client, ler_arquivo())
+        else:
+            netWarning()
 
     elif sys.argv[1] == "-c":
-        contar_palavras(client, ler_arquivo())
-
+        if netCheck() == True:
+            contar_palavras(client, ler_arquivo())
+        else:
+            netWarning()
+        
     elif sys.argv[1] == "-e":
-        reconhecimento_de_entidades(client, ler_arquivo())
-
+        if netCheck() == True:
+            reconhecimento_de_entidades(client, ler_arquivo())
+        else:
+            netWarning()
+        
     elif sys.argv[1] == "-f":
-        frequencia_de_palavras(client, ler_arquivo())
+        if netCheck() == True:
+            frequencia_de_palavras(client, ler_arquivo())
+        else:
+            netWarning()
 
 
 try:
