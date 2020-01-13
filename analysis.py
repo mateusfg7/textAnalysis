@@ -40,37 +40,37 @@ def ler_arquivo():
 
 def menu():
     if sys.argv[1] == "-t" :
-        if netCheck() == True:
+        if netCheck():
             pegar_tags(client, ler_arquivo())
         else:
             netWarning()
 
     elif sys.argv[1] == "-s" :
-        if netCheck() == True:
+        if netCheck():
             analise_de_sentimento(client, ler_arquivo())
         else:
             netWarning()
         
     elif sys.argv[1] == "-r":
-        if netCheck() == True:
+        if netCheck():
             resumir_texto(client, ler_arquivo())
         else:
             netWarning()
 
     elif sys.argv[1] == "-c":
-        if netCheck() == True:
+        if netCheck():
             contar_palavras(client, ler_arquivo())
         else:
             netWarning()
         
     elif sys.argv[1] == "-e":
-        if netCheck() == True:
+        if netCheck():
             reconhecimento_de_entidades(client, ler_arquivo())
         else:
             netWarning()
         
     elif sys.argv[1] == "-f":
-        if netCheck() == True:
+        if netCheck():
             frequencia_de_palavras(client, ler_arquivo())
         else:
             netWarning()
