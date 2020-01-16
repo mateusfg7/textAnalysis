@@ -3,10 +3,10 @@ import math
 from translate.traduzir import traduzir
 
 def analise_de_sentimento(client, sentenca):
-    input = {"sentence": traduzir('en', sentenca)}
+    texto = {"sentence": traduzir('en', sentenca)}
     
     algoritimo = client.algo('nlp/SocialSentimentAnalysis/0.1.4')
-    retorno = algoritimo.pipe(input).result
+    retorno = algoritimo.pipe(texto).result
 
     positivo = math.floor(retorno[0]['positive'] * 100)
     negativo = math.floor(retorno[0]['negative'] * 100)
