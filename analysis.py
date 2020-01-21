@@ -37,48 +37,7 @@ def ler_arquivo():
             print('Arquivo "{}" não encontrado!'.format(arquivo))
         exit()
 
-
 def menu():
-    if sys.argv[1] == "-t" :
-        if netCheck():
-            pegar_tags(client, ler_arquivo())
-        else:
-            netWarning()
-
-    elif sys.argv[1] == "-s" :
-        if netCheck():
-            analise_de_sentimento(client, ler_arquivo())
-        else:
-            netWarning()
-        
-    elif sys.argv[1] == "-r":
-        if netCheck():
-            resumir_texto(client, ler_arquivo())
-        else:
-            netWarning()
-
-    elif sys.argv[1] == "-c":
-        if netCheck():
-            contar_palavras(client, ler_arquivo())
-        else:
-            netWarning()
-        
-    elif sys.argv[1] == "-e":
-        if netCheck():
-            reconhecimento_de_entidades(client, ler_arquivo())
-        else:
-            netWarning()
-        
-    elif sys.argv[1] == "-f":
-        if netCheck():
-            frequencia_de_palavras(client, ler_arquivo())
-        else:
-            netWarning()
-
-
-try:
-    menu()
-except IndexError:
     print(
     """
     Use: analysis.py [opção] [arquivo]
@@ -97,3 +56,50 @@ except IndexError:
         analysis.py -f [arquivo] [numero de palavras analisadas]
     """
     )
+
+def condicionais():
+    try:
+        if sys.argv[1] == "-t" :
+            if netCheck():
+                pegar_tags(client, ler_arquivo())
+            else:
+                netWarning()
+
+        elif sys.argv[1] == "-s" :
+            if netCheck():
+                analise_de_sentimento(client, ler_arquivo())
+            else:
+                netWarning()
+            
+        elif sys.argv[1] == "-r":
+            if netCheck():
+                resumir_texto(client, ler_arquivo())
+            else:
+                netWarning()
+
+        elif sys.argv[1] == "-c":
+            if netCheck():
+                contar_palavras(client, ler_arquivo())
+            else:
+                netWarning()
+            
+        elif sys.argv[1] == "-e":
+            if netCheck():
+                reconhecimento_de_entidades(client, ler_arquivo())
+            else:
+                netWarning()
+            
+        elif sys.argv[1] == "-f":
+            if netCheck():
+                frequencia_de_palavras(client, ler_arquivo())
+            else:
+                netWarning()
+        
+        elif sys.argv[1] == "-h":
+            menu()
+
+    except IndexError:
+        menu()
+
+# main execution
+condicionais()
