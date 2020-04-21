@@ -2,7 +2,7 @@ import sys
 
 try:
     import Algorithmia
-    client = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
+    CLIENT = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
 except ModuleNotFoundError:
     print("Biblioteca 'Algorithmia' não foi encontrada.")
     print("tente: pip3 install algorithmia")
@@ -19,7 +19,6 @@ from functions.reconhecimento_de_entidades import reconhecimento_de_entidades
 from functions.frequencia_de_palavras import frequencia_de_palavras
 
 
-
 def ler_arquivo():
 
     arquivo = sys.argv[2]
@@ -28,18 +27,19 @@ def ler_arquivo():
 
         with open(arquivo, 'r') as openFile:
             return openFile.read()
-        
+
     except FileNotFoundError:
 
         if arquivo == 'analysis.py0':
             print('Nenhum arquivo foi passado!')
         else:
             print('Arquivo "{}" não encontrado!'.format(arquivo))
-        exit()
+        sys.exit()
+
 
 def menu():
     print(
-    """
+        """
     Use: analysis.py [opção] [arquivo]
 
     -t  pegar tags apartir de um texto
@@ -57,49 +57,51 @@ def menu():
     """
     )
 
+
 def condicionais():
     try:
-        if sys.argv[1] == "-t" :
+        if sys.argv[1] == "-t":
             if netCheck():
-                pegar_tags(client, ler_arquivo())
+                pegar_tags(CLIENT, ler_arquivo())
             else:
                 netWarning()
 
-        elif sys.argv[1] == "-s" :
+        elif sys.argv[1] == "-s":
             if netCheck():
-                analise_de_sentimento(client, ler_arquivo())
+                analise_de_sentimento(CLIENT, ler_arquivo())
             else:
                 netWarning()
-            
+
         elif sys.argv[1] == "-r":
             if netCheck():
-                resumir_texto(client, ler_arquivo())
+                resumir_texto(CLIENT, ler_arquivo())
             else:
                 netWarning()
 
         elif sys.argv[1] == "-c":
             if netCheck():
-                contar_palavras(client, ler_arquivo())
+                contar_palavras(CLIENT, ler_arquivo())
             else:
                 netWarning()
-            
+
         elif sys.argv[1] == "-e":
             if netCheck():
-                reconhecimento_de_entidades(client, ler_arquivo())
+                reconhecimento_de_entidades(CLIENT, ler_arquivo())
             else:
                 netWarning()
-            
+
         elif sys.argv[1] == "-f":
             if netCheck():
-                frequencia_de_palavras(client, ler_arquivo())
+                frequencia_de_palavras(CLIENT, ler_arquivo())
             else:
                 netWarning()
-        
+
         elif sys.argv[1] == "-h":
             menu()
 
     except IndexError:
         menu()
+
 
 # main execution
 condicionais()
