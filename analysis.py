@@ -8,6 +8,8 @@ except ModuleNotFoundError:
     print("tente: pip3 install algorithmia")
     sys.exit(1)
 
+from utils.readFile import read_file
+
 from connection import checkInternetConnection as netCheck
 from connection import internetFailWarning as netWarning
 
@@ -17,24 +19,6 @@ from functions.resumir_texto import resumir_texto
 from functions.contar_palavras import contar_palavras
 from functions.reconhecimento_de_entidades import reconhecimento_de_entidades
 from functions.frequencia_de_palavras import frequencia_de_palavras
-
-
-def ler_arquivo():
-
-    arquivo = sys.argv[2]
-
-    try:
-
-        with open(arquivo, 'r') as openFile:
-            return openFile.read()
-
-    except FileNotFoundError:
-
-        if arquivo == 'analysis.py0':
-            print('Nenhum arquivo foi passado!')
-        else:
-            print('Arquivo "{}" não encontrado!'.format(arquivo))
-        sys.exit()
 
 
 def menu():
@@ -58,45 +42,54 @@ def menu():
     )
 
 
+try:
+    firstArgument = sys.argv[1]
+    secondArgument = sys.argv[2]
+except IndexError:
+    menu()
+    sys.exit()
+
+
 def condicionais():
     try:
-        if sys.argv[1] == "-t":
+        if firstArgument == "-t":
             if netCheck():
-                pegar_tags(CLIENT, ler_arquivo())
+                pegar_tags(CLIENT, read_file(secondArgument))
             else:
                 netWarning()
 
-        elif sys.argv[1] == "-s":
+        elif firstArgument == "-s":
             if netCheck():
-                analise_de_sentimento(CLIENT, ler_arquivo())
+                analise_de_sentimento(CLIENT, read_file(secondArgument))
             else:
                 netWarning()
 
-        elif sys.argv[1] == "-r":
+        elif firstArgument == "-r":
             if netCheck():
-                resumir_texto(CLIENT, ler_arquivo())
+                resumir_texto(CLIENT, read_file(secondArgument))
             else:
                 netWarning()
 
-        elif sys.argv[1] == "-c":
+        elif firstArgument == "-c":
             if netCheck():
-                contar_palavras(CLIENT, ler_arquivo())
+                contar_palavras(CLIENT, read_file(secondArgument))
             else:
                 netWarning()
 
-        elif sys.argv[1] == "-e":
+        elif firstArgument == "-e":
             if netCheck():
-                reconhecimento_de_entidades(CLIENT, ler_arquivo())
+                reconhecimento_de_entidades(
+                    CLIENT, read_file(secondArgument))
             else:
                 netWarning()
 
-        elif sys.argv[1] == "-f":
+        elif firstArgument == "-f":
             if netCheck():
-                frequencia_de_palavras(CLIENT, ler_arquivo())
+                frequencia_de_palavras(CLIENT, read_file(secondArgument))
             else:
                 netWarning()
 
-        elif sys.argv[1] == "-h":
+        elif firstArgument == "-h":
             menu()
 
     except IndexError:
