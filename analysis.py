@@ -50,46 +50,46 @@ except IndexError:
     sys.exit()
 
 
-def condicionais():
+def condicionais(option, client, file):
     try:
-        if FIRST_ARGUMENT == "-t":
+        if option == "-t":
             if netCheck():
-                pegar_tags(CLIENT, read_file(SECOND_ARGUMENT))
+                pegar_tags(client, read_file(file))
             else:
                 netWarning()
 
-        elif FIRST_ARGUMENT == "-s":
+        elif option == "-s":
             if netCheck():
-                analise_de_sentimento(CLIENT, read_file(SECOND_ARGUMENT))
+                analise_de_sentimento(client, read_file(file))
             else:
                 netWarning()
 
-        elif FIRST_ARGUMENT == "-r":
+        elif option == "-r":
             if netCheck():
-                resumir_texto(CLIENT, read_file(SECOND_ARGUMENT))
+                resumir_texto(client, read_file(file))
             else:
                 netWarning()
 
-        elif FIRST_ARGUMENT == "-c":
+        elif option == "-c":
             if netCheck():
-                contar_palavras(CLIENT, read_file(SECOND_ARGUMENT))
+                contar_palavras(client, read_file(file))
             else:
                 netWarning()
 
-        elif FIRST_ARGUMENT == "-e":
+        elif option == "-e":
             if netCheck():
                 reconhecimento_de_entidades(
-                    CLIENT, read_file(SECOND_ARGUMENT))
+                    client, read_file(file))
             else:
                 netWarning()
 
-        elif FIRST_ARGUMENT == "-f":
+        elif option == "-f":
             if netCheck():
-                frequencia_de_palavras(CLIENT, read_file(SECOND_ARGUMENT))
+                frequencia_de_palavras(client, read_file(file))
             else:
                 netWarning()
 
-        elif FIRST_ARGUMENT == "-h":
+        elif option == "-h":
             menu()
 
     except IndexError:
@@ -97,4 +97,4 @@ def condicionais():
 
 
 # main execution
-condicionais()
+condicionais(FIRST_ARGUMENT, CLIENT, SECOND_ARGUMENT)
