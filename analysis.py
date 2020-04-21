@@ -43,8 +43,8 @@ def menu():
 
 
 try:
-    firstArgument = sys.argv[1]
-    secondArgument = sys.argv[2]
+    FIRST_ARGUMENT = sys.argv[1]
+    SECOND_ARGUMENT = sys.argv[2]
 except IndexError:
     menu()
     sys.exit()
@@ -52,44 +52,44 @@ except IndexError:
 
 def condicionais():
     try:
-        if firstArgument == "-t":
+        if FIRST_ARGUMENT == "-t":
             if netCheck():
-                pegar_tags(CLIENT, read_file(secondArgument))
+                pegar_tags(CLIENT, read_file(SECOND_ARGUMENT))
             else:
                 netWarning()
 
-        elif firstArgument == "-s":
+        elif FIRST_ARGUMENT == "-s":
             if netCheck():
-                analise_de_sentimento(CLIENT, read_file(secondArgument))
+                analise_de_sentimento(CLIENT, read_file(SECOND_ARGUMENT))
             else:
                 netWarning()
 
-        elif firstArgument == "-r":
+        elif FIRST_ARGUMENT == "-r":
             if netCheck():
-                resumir_texto(CLIENT, read_file(secondArgument))
+                resumir_texto(CLIENT, read_file(SECOND_ARGUMENT))
             else:
                 netWarning()
 
-        elif firstArgument == "-c":
+        elif FIRST_ARGUMENT == "-c":
             if netCheck():
-                contar_palavras(CLIENT, read_file(secondArgument))
+                contar_palavras(CLIENT, read_file(SECOND_ARGUMENT))
             else:
                 netWarning()
 
-        elif firstArgument == "-e":
+        elif FIRST_ARGUMENT == "-e":
             if netCheck():
                 reconhecimento_de_entidades(
-                    CLIENT, read_file(secondArgument))
+                    CLIENT, read_file(SECOND_ARGUMENT))
             else:
                 netWarning()
 
-        elif firstArgument == "-f":
+        elif FIRST_ARGUMENT == "-f":
             if netCheck():
-                frequencia_de_palavras(CLIENT, read_file(secondArgument))
+                frequencia_de_palavras(CLIENT, read_file(SECOND_ARGUMENT))
             else:
                 netWarning()
 
-        elif firstArgument == "-h":
+        elif FIRST_ARGUMENT == "-h":
             menu()
 
     except IndexError:
