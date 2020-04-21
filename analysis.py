@@ -8,7 +8,7 @@ except ModuleNotFoundError:
     print("tente: pip3 install algorithmia")
     sys.exit(1)
 
-from utils.readFile import read_file
+from utils.readFile import readFile
 from utils.connection import checkInternetConnection as netCheck
 from utils.connection import internetFailWarning as netWarning
 
@@ -54,38 +54,38 @@ def condicionais(option, client, file):
     try:
         if option == "-t":
             if netCheck():
-                pegar_tags(client, read_file(file))
+                pegar_tags(client, readFile(file))
             else:
                 netWarning()
 
         elif option == "-s":
             if netCheck():
-                analise_de_sentimento(client, read_file(file))
+                analise_de_sentimento(client, readFile(file))
             else:
                 netWarning()
 
         elif option == "-r":
             if netCheck():
-                resumir_texto(client, read_file(file))
+                resumir_texto(client, readFile(file))
             else:
                 netWarning()
 
         elif option == "-c":
             if netCheck():
-                contar_palavras(client, read_file(file))
+                contar_palavras(client, readFile(file))
             else:
                 netWarning()
 
         elif option == "-e":
             if netCheck():
                 reconhecimento_de_entidades(
-                    client, read_file(file))
+                    client, readFile(file))
             else:
                 netWarning()
 
         elif option == "-f":
             if netCheck():
-                frequencia_de_palavras(client, read_file(file))
+                frequencia_de_palavras(client, readFile(file))
             else:
                 netWarning()
 

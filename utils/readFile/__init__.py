@@ -1,7 +1,7 @@
 import sys
 
 
-def read_file(file):
+def readFile(file):
     try:
         with open(file, 'r') as openFile:
             return openFile.read()
