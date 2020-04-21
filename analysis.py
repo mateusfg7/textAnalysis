@@ -9,9 +9,9 @@ except ModuleNotFoundError:
     sys.exit(1)
 
 from utils.readFile import read_file
+from utils.connection import checkInternetConnection as netCheck
+from utils.connection import internetFailWarning as netWarning
 
-from connection import checkInternetConnection as netCheck
-from connection import internetFailWarning as netWarning
 
 from functions.pegar_tags import pegar_tags
 from functions.analise_de_sentimento import analise_de_sentimento
