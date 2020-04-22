@@ -4,12 +4,15 @@ from interface.texts import optionsTitle
 
 def frequencyOfWords(client, texto):
     print(optionsTitle('--frequency'))
+    arguments = sys.argv
+    file = arguments[arguments.index('--file') + 1]
+
     try:
-        wordCount = int(sys.argv[3])
-    except IndexError:
+        wordCount = arguments[arguments.index('--frequency') + 1]
+    except:
         print("Você não indicou o número de palavras analisadas!")
         print(
-            "analysis.py -f {} [numero de palavras analisadas]".format(sys.argv[2]))
+            f"analysis.py --file {file} --frequency [numero de palavras analisadas]")
         sys.exit(1)
 
     wordList = [
