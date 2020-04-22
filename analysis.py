@@ -12,12 +12,19 @@ except ModuleNotFoundError:
     sys.exit(1)
 
 
-try:
-    FIRST_ARGUMENT = sys.argv[1]
-    SECOND_ARGUMENT = sys.argv[2]
-except IndexError:
+arguments = sys.argv
+rangeOfOptions = ['-t', '-s', '-r', '-c', '-e', '-f', '-h']
+
+if len(arguments) > 1:
+
+    for option in rangeOfOptions:
+        try:
+            ARGUMENT_POSITION = arguments.index(option)
+            condicionais(option, CLIENT,
+                         arguments[ARGUMENT_POSITION + 1])
+        except ValueError:
+            pass
+
+else:
     print(texts.menu())
     sys.exit()
-
-
-condicionais(FIRST_ARGUMENT, CLIENT, SECOND_ARGUMENT)
