@@ -25,6 +25,6 @@ def frequencyOfWords(client, texto):
     resultado = algoritimo.pipe(wordList).result
     count = 1
     for palavra in resultado:
-        print(f'{count}ª Palavra: {palavra['word']}')
-        print(f'Frequência: {palavra['frequency']}\n')
+        print(f"{count}ª Palavra mais comum: {palavra['word']}")
+        print(f"Frequência: {palavra['frequency']}\n")
         count += 1
