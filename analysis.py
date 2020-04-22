@@ -2,7 +2,7 @@ import sys
 
 from interface import texts
 
-from choice import condicionais
+from choice import choices
 
 try:
     import Algorithmia
@@ -20,8 +20,8 @@ if len(arguments) > 1:
     for option in rangeOfOptions:
         try:
             ARGUMENT_POSITION = arguments.index(option)
-            condicionais(option, CLIENT,
-                         arguments[ARGUMENT_POSITION + 1])
+            choices(option, CLIENT,
+                    arguments[ARGUMENT_POSITION + 1])
         except ValueError:
             pass
 

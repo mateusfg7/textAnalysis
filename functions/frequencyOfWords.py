@@ -1,13 +1,15 @@
 import sys
 
-def frequencia_de_palavras(client, texto):
+
+def frequencyOfWords(client, texto):
     try:
         wordCount = int(sys.argv[3])
     except IndexError:
         print("Você não indicou o número de palavras analisadas!")
-        print("analysis.py -f {} [numero de palavras analisadas]".format(sys.argv[2]))
+        print(
+            "analysis.py -f {} [numero de palavras analisadas]".format(sys.argv[2]))
         sys.exit(1)
-    
+
     wordList = [
         texto,
         wordCount,
