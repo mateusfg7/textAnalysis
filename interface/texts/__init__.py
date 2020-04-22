@@ -1,20 +1,20 @@
 def menu():
     return (
         """
-    Use: analysis.py [opção] [arquivo]
+    Use: analysis.py --file [arquivo] [opção]
 
-    -t  pegar tags apartir de um texto
+    --tag  pegar tags apartir de um texto
 
-    -s  obter sentimentos negativos, positivos e neutros apartir de um texto
+    --feeling  obter sentimentos negativos, positivos e neutros apartir de um texto
 
-    -r  resumir um texto
+    --summarize  resumir um texto
 
-    -c  contar palavras contidas em um texto
+    --count  contar palavras contidas em um texto
 
-    -e  reconhecer nomes de entidades
+    --entity  reconhecer nomes de entidades
 
-    -f calcular a frequência das n palavras mais comuns de um texto
-        analysis.py -f [arquivo] [numero de palavras analisadas]
+    --frequency calcular a frequência das n palavras mais comuns de um texto
+        analysis.py --file [arquivo] --frequency [numero de palavras analisadas]
     """
     )
 
