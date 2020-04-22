@@ -14,45 +14,42 @@ from functions.frequencyOfWords import frequencyOfWords
 
 def choices(option, client, file):
     try:
-        if option == "-t":
+        if option == "--tag":
             if netCheck():
                 getTags(client, readFile(file))
             else:
                 netWarning()
 
-        elif option == "-s":
+        elif option == "--feeling":
             if netCheck():
                 feelingAnalisys(client, readFile(file))
             else:
                 netWarning()
 
-        elif option == "-r":
+        elif option == "--summarize":
             if netCheck():
                 summarizeText(client, readFile(file))
             else:
                 netWarning()
 
-        elif option == "-c":
+        elif option == "--count":
             if netCheck():
                 countWords(client, readFile(file))
             else:
                 netWarning()
 
-        elif option == "-e":
+        elif option == "--entity":
             if netCheck():
                 entityRecognition(
                     client, readFile(file))
             else:
                 netWarning()
 
-        elif option == "-f":
+        elif option == "--frequency":
             if netCheck():
                 frequencyOfWords(client, readFile(file))
             else:
                 netWarning()
-
-        elif option == "-h":
-            print(texts.menu())
 
     except IndexError:
         print(texts.menu())
