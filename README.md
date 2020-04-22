@@ -95,18 +95,18 @@ $ python3 analysis.py --file turing.txt --frequency 5
 _out:_
 
 ```shell
-1ª Palavra: de
+1ª Palavra mais comum: de
 Frequência: 21
 
-2ª Palavra: a
+2ª Palavra mais comum: a
 Frequência: 10
 
-3ª Palavra: da
+3ª Palavra mais comum: da
 Frequência: 10
 
-4ª Palavra: um
+4ª Palavra mais comum: um
 Frequência: 10
 
-5ª Palavra: e
+5ª Palavra mais comum: e
 Frequência: 8
 ```
