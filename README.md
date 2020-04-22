@@ -42,13 +42,13 @@ python3 -m pip install -r requirements.txt
 **Algorithmia**
 
 ```
-pip3 install algorithmia
+python3 -m pip install algorithmia
 ```
 
 **GoogleTrans**
 
 ```
-pip3 install googletran
+python3 -m pip install googletran
 ```
 
 ## Uso
