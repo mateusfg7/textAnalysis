@@ -1,9 +1,11 @@
 import math
 
 from translate.traduzir import traduzir
+from interface.texts import optionsTitle
 
 
 def feelingAnalisys(client, sentenca):
+    print(optionsTitle('--feeling'))
     texto = {"sentence": traduzir('en', sentenca)}
 
     algoritimo = client.algo('nlp/SocialSentimentAnalysis/0.1.4')

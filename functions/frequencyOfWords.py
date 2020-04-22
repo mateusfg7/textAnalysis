@@ -1,7 +1,9 @@
 import sys
+from interface.texts import optionsTitle
 
 
 def frequencyOfWords(client, texto):
+    print(optionsTitle('--frequency'))
     try:
         wordCount = int(sys.argv[3])
     except IndexError:

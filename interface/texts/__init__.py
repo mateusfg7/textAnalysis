@@ -26,3 +26,15 @@ def moduleNotFoundError(moduleName, modulePackage):
     tente: pip3 install {modulePackage}
         """
     )
+
+
+def optionsTitle(option):
+    textOfOptions = {
+        '--tag': '\nPegando tags...\n',
+        '--feeling': '\nFazendo análise de sentimentos...\n',
+        '--summarize': '\nResumindo texto...\n',
+        '--count': '\nContando palavras...\n',
+        '--entity': '\nExtraindo entidades...\n',
+        '--frequency': '\nObtendo frequencia de cada palavra...\n',
+    }
+    return textOfOptions[option]

@@ -1,7 +1,9 @@
 from translate.traduzir import traduzir
+from interface.texts import optionsTitle
 
 
 def entityRecognition(client, arquivo):
+    print(optionsTitle('--entity'))
 
     if arquivo:
 
