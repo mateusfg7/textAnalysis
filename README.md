@@ -12,6 +12,7 @@ _Index_
     - [Dependências Separadas](#instale-as-dependências-separadamente)
 3. [Uso](#uso)
     - [Exêmplos de Uso](#exêmplos-de-uso)
+4. [API Key](#conseguir-algorithmia-api-key)
 
 ---
 
@@ -111,9 +112,27 @@ Frequência: 10
 Frequência: 8
 ```
 
+## Conseguir Algorithmia API Key
+
+1. _Entre no site [Algorithmia.com](https://algorithmia.com) e clique em **Try it For Free**_
+   ![step1](doc/screenshots/step1.png)
+2. _Preencha as informações e crie sua conta_
+   ![step2](doc/screenshots/step2.png)
+   ![step3](doc/screenshots/step3.png)
+3. _Clique no botão **API Keys** e copie a chave gerada automaticamente (**default-key**)_
+   ![step4](doc/screenshots/step4.png)
+   ![step5](doc/screenshots/step5.png)
+4. _Cole sua api key e clique **enter**, se aparecer a mensagem **Api key salva com sucesso!** é porque tudo correu bem._
+   ![step6](doc/screenshots/step6.png)
+   ![step7](doc/screenshots/step7.png)
+5. _Reexecute o script_
+   ![step8](doc/screenshots/step8.png)
+
+> _a api key fica salva em **auth/keys.json**_
+
 ---
 
-Doe :heart: :
+### Doe :heart: :
 
 **BTC**: _13sGVSdDeVH8HVVKUDFNfrm8Q5sV7Q429o_
 
