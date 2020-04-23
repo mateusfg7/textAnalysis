@@ -1,3 +1,5 @@
+import sys
+
 from interface import texts
 
 from utils.readFile import readFile
@@ -13,43 +15,50 @@ from functions.frequencyOfWords import frequencyOfWords
 
 
 def choices(option, client, file):
-    try:
-        if option == "--tag":
-            if netCheck():
-                getTags(client, readFile(file))
-            else:
-                netWarning()
+    fileState = readFile(file)
 
-        elif option == "--feeling":
-            if netCheck():
-                feelingAnalisys(client, readFile(file))
-            else:
-                netWarning()
+    if fileState:
+        try:
+            if option == "--tag":
+                if netCheck():
+                    getTags(client, fileState)
+                else:
+                    netWarning()
 
-        elif option == "--summarize":
-            if netCheck():
-                summarizeText(client, readFile(file))
-            else:
-                netWarning()
+            elif option == "--feeling":
+                if netCheck():
+                    feelingAnalisys(client, fileState)
+                else:
+                    netWarning()
 
-        elif option == "--count":
-            if netCheck():
-                countWords(client, readFile(file))
-            else:
-                netWarning()
+            elif option == "--summarize":
+                if netCheck():
+                    summarizeText(client, fileState)
+                else:
+                    netWarning()
 
-        elif option == "--entity":
-            if netCheck():
-                entityRecognition(
-                    client, readFile(file))
-            else:
-                netWarning()
+            elif option == "--count":
+                if netCheck():
+                    countWords(client, fileState)
+                else:
+                    netWarning()
 
-        elif option == "--frequency":
-            if netCheck():
-                frequencyOfWords(client, readFile(file))
-            else:
-                netWarning()
+            elif option == "--entity":
+                if netCheck():
+                    entityRecognition(
+                        client, fileState)
+                else:
+                    netWarning()
 
-    except IndexError:
+            elif option == "--frequency":
+                if netCheck():
+                    frequencyOfWords(client, fileState)
+                else:
+                    netWarning()
+
+        except IndexError:
+            print(texts.menu())
+    else:
+        print(f'Arquivo "{file}" não encontrado!\n')
         print(texts.menu())
+        sys.exit(1)
