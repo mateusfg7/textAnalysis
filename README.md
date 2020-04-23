@@ -110,3 +110,8 @@ Frequência: 10
 5ª Palavra mais comum: e
 Frequência: 8
 ```
+
+---
+
+**BTC**: _13sGVSdDeVH8HVVKUDFNfrm8Q5sV7Q429o_
+**ETH**: _0x0A6B9Eeb640A17bA0a0a96D986C66D0c75A39832_
