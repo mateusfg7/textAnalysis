@@ -1,12 +1,29 @@
+# global modules
 import sys
+from json import loads as str2json
 
+# local modules
 from interface import texts
-
+from auth import getKey
+from auth import createKey
 from choice import choices
+from utils.fileTreatment import readFile
+from utils.fileTreatment import writeFile
 
 try:
     import Algorithmia
-    CLIENT = Algorithmia.client('simC43S79CE5FQyQ35I6X8UWv3z1')
+    keys = getKey(readFile, str2json)
+    if keys:
+        CLIENT = Algorithmia.client(keys['api_key'])
+    else:
+        print('Visite https://github.com/mateusfg7/textAnalysis/blob/master/README.md para saber como criar sua api key.')
+        key = input('Sua api key: ')
+        if createKey(key, writeFile):
+            print('Api key salva com sucesso!')
+            sys.exit()
+        else:
+            print('Um erro ocorreu durante o processo, tente novamente.')
+            sys.exit()
 except ModuleNotFoundError:
     print(texts.moduleNotFoundError('Algorithmia', 'algorithmia'))
     sys.exit(1)
