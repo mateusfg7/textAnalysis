@@ -1,2 +1,8 @@
-*.sh
+# auth
+keys.json
+
+# cache
 __pycache__
+
+# test
+TEST.py
