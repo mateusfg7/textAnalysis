@@ -12,4 +12,4 @@ def readFile(file):
             print('Nenhum arquivo foi passado!')
         else:
             print('Arquivo "{}" não encontrado!'.format(file))
-        sys.exit()
+        return False
