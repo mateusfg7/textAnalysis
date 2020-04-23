@@ -1,3 +1,5 @@
+import sys
+
 from utils.translate import traduzir
 from interface.texts import optionsTitle
 
@@ -19,7 +21,7 @@ def entityRecognition(client, arquivo):
 
         if not wordlist:
             print("Não foram encontradas nenhuma entidade.")
-            exit()
+            sys.exit(1)
         else:
             for name in wordlist:
                 print('Nome: {} \nEntidade: {}\n'.format(
