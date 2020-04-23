@@ -13,6 +13,7 @@ _Index_
 3. [Uso](#uso)
     - [Exêmplos de Uso](#exêmplos-de-uso)
 4. [API Key](#conseguir-algorithmia-api-key)
+5. [Doe](#doe-heart-)
 
 ---
 
