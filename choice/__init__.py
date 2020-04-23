@@ -2,7 +2,7 @@ import sys
 
 from interface import texts
 
-from utils.readFile import readFile
+from utils.fileTreatment import readFile
 from utils.connection import checkInternetConnection as netCheck
 from utils.connection import internetFailWarning as netWarning
 
