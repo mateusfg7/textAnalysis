@@ -13,7 +13,8 @@ _Index_
 3. [Uso](#uso)
     - [Exêmplos de Uso](#exêmplos-de-uso)
 4. [API Key](#conseguir-algorithmia-api-key)
-5. [Doe](#doe-heart-)
+5. [Créditos](#créditos)
+6. [Doe](#doe-heart-)
 
 ---
 
@@ -130,6 +131,25 @@ Frequência: 8
    ![step8](doc/screenshots/step8.png)
 
 > _a api key fica salva em **auth/keys.json**_
+
+## Créditos
+
+-   [nlp](https://algorithmia.com/users/nlp)
+
+    -   [AutoTag](https://algorithmia.com/algorithms/nlp/AutoTag)
+    -   [SocialSentimentAnalysis](https://algorithmia.com/algorithms/nlp/SocialSentimentAnalysis)
+    -   [Summarizer](https://algorithmia.com/algorithms/nlp/Summarizer)
+
+-   [StanfordNLP](https://algorithmia.com/users/StanfordNLP)
+
+    -   [NamedEntityRecognition](https://algorithmia.com/algorithms/StanfordNLP/NamedEntityRecognition)
+
+-   [WebPredict (Jeff Sanchez) ](https://algorithmia.com/algorithms/WebPredict/)
+
+    -   [WordFrequencies](https://algorithmia.com/algorithms/WebPredict/WordFrequencies)
+
+-   [Diego Oppenheimer ](https://algorithmia.com/algorithms/diego)
+    -   [WordCounter](https://algorithmia.com/algorithms/diego/WordCounter)
 
 ---
 
