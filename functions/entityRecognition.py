@@ -1,4 +1,4 @@
-from translate.traduzir import traduzir
+from utils.translate import traduzir
 from interface.texts import optionsTitle
 
 
