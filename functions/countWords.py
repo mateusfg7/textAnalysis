@@ -1,8 +1,7 @@
 from interface.texts import optionsTitle
 
 
-def countWords(client, arquivo):
+def countWords(client, text):
     print(optionsTitle('--count'))
-    texto = arquivo
     algoritimo = client.algo('diego/WordCounter/0.1.0')
-    print(algoritimo.pipe(texto).result)
+    print(algoritimo.pipe(text).result)
