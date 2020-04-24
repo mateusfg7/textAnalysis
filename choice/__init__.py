@@ -4,7 +4,6 @@ from interface import texts
 
 from utils.fileTreatment import readFile
 from utils.connection import checkInternetConnection as netCheck
-from utils.connection import internetFailWarning as netWarning
 
 from functions.getTags import getTags
 from functions.feelingAnalisys import feelingAnalisys
@@ -35,7 +34,10 @@ def choices(option, client, file):
                 optionSelect[option](client, fileState)
 
             else:
-                netWarning()
+                print("Você não tem conexão com a internet.")
+                print(
+                    "Esse algorítimo precisa de conexão com a internet para ser executado.")
+                sys.exit()
 
         except IndexError:
             print(texts.menu())
