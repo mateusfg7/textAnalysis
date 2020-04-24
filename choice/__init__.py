@@ -1,3 +1,4 @@
+from requests import get as request
 import sys
 
 from interface import texts
@@ -19,7 +20,7 @@ def choices(option, client, file):
 
     if fileState:
         try:
-            if netCheck():
+            if netCheck(request):
 
                 "c: client ; f: file"
                 optionSelect = {
