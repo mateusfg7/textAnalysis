@@ -21,21 +21,19 @@ def choices(option, client, file):
     if fileState:
         try:
             if netCheck():
-                if option == "--tag":
-                    getTags(client, fileState)
-                elif option == "--feeling":
-                    feelingAnalisys(client, fileState)
-                elif option == "--summarize":
-                    summarizeText(client, fileState)
-                elif option == "--count":
-                    countWords(client, fileState)
-                elif option == "--entity":
-                    entityRecognition(
-                        client, fileState)
-                elif option == "--frequency":
-                    frequencyOfWords(client, fileState)
-                elif option == "--email":
-                    emailExtract(client, fileState)
+
+                "c: client ; f: file"
+                optionSelect = {
+                    "--tag": lambda c, f: getTags(c, f),
+                    "--feeling": lambda c, f: feelingAnalisys(c, f),
+                    "--summarize": lambda c, f: summarizeText(c, f),
+                    "--count": lambda c, f: countWords(c, f),
+                    "--entity": lambda c, f: entityRecognition(c, f),
+                    "--frequency": lambda c, f: frequencyOfWords(c, f),
+                    "--email": lambda c, f:  emailExtract(c, f)
+                }
+                optionSelect[option](client, fileState)
+
             else:
                 netWarning()
 
