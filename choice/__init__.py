@@ -20,48 +20,24 @@ def choices(option, client, file):
 
     if fileState:
         try:
-            if option == "--tag":
-                if netCheck():
+            if netCheck():
+                if option == "--tag":
                     getTags(client, fileState)
-                else:
-                    netWarning()
-
-            elif option == "--feeling":
-                if netCheck():
+                elif option == "--feeling":
                     feelingAnalisys(client, fileState)
-                else:
-                    netWarning()
-
-            elif option == "--summarize":
-                if netCheck():
+                elif option == "--summarize":
                     summarizeText(client, fileState)
-                else:
-                    netWarning()
-
-            elif option == "--count":
-                if netCheck():
+                elif option == "--count":
                     countWords(client, fileState)
-                else:
-                    netWarning()
-
-            elif option == "--entity":
-                if netCheck():
+                elif option == "--entity":
                     entityRecognition(
                         client, fileState)
-                else:
-                    netWarning()
-
-            elif option == "--frequency":
-                if netCheck():
+                elif option == "--frequency":
                     frequencyOfWords(client, fileState)
-                else:
-                    netWarning()
-
-            elif option == "--email":
-                if netCheck():
+                elif option == "--email":
                     emailExtract(client, fileState)
-                else:
-                    netWarning()
+            else:
+                netWarning()
 
         except IndexError:
             print(texts.menu())
