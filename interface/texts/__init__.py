@@ -36,5 +36,6 @@ def optionsTitle(option):
         '--count': '\nContando palavras...\n',
         '--entity': '\nExtraindo entidades...\n',
         '--frequency': '\nObtendo frequencia de cada palavra...\n',
+        '--email': '\nExtraindo emails no texto...\n'
     }
     return textOfOptions[option]
