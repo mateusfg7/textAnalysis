@@ -36,7 +36,7 @@ def choices(option, client, file):
             else:
                 print("Você não tem conexão com a internet.")
                 print(
-                    "Esse algorítimo precisa de conexão com a internet para ser executado.")
+                    "Esse script precisa de conexão com a internet para ser executado.")
                 sys.exit()
 
         except IndexError:
