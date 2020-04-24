@@ -1,0 +1,62 @@
+## SAMPLE EMAILS ##
+
+mateusfelipefg77@gmail.com
+sample@sample.sample
+other.sample@sample.domain
+simple@example.com
+very.common@example.com
+disposable.style.email.with+symbol@example.com
+other.email-with-hyphen@example.com
+fully-qualified-domain@example.com
+user.name+tag+sorting@example.com
+x@example.com
+example-indeed@strange-example.com
+admin@mailserver1
+example@s.example
+" "@example.org
+"john..doe"@example.org
+mailhost!username@example.org
+user%example.com@example.org
+
+###################
+
+
+## SAMPLE ADDRESSES ##
+
+Cecilia Chapman
+711-2880 Nulla St.
+Mankato Mississippi 96522
+(257) 563-7401
+Iris Watson
+P.O. Box 283 8562 Fusce Rd.
+Frederick Nebraska 20620
+(372) 587-2335
+Celeste Slater
+606-3727 Ullamcorper. Street
+Roseville NH 11523
+(786) 713-8616
+Theodore Lowe
+Ap #867-859 Sit Rd.
+Azusa New York 39531
+(793) 151-6230
+Calista Wise
+7292 Dictum Av.
+San Antonio MI 47096
+(492) 709-6392
+Kyla Olsen
+Ap #651-8679 Sodales Av.
+Tamuning PA 10855
+(654) 393-5734
+Forrest Ray
+191-103 Integer Rd.
+Corona New Mexico 08219
+(404) 960-3807
+Hiroko Potter
+P.O. Box 887 2508 Dolor. Av.
+Muskegon KY 12482
+
+
+
+
+######################
+
