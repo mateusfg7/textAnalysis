@@ -4,12 +4,12 @@ from utils.translate import traduzir
 from interface.texts import optionsTitle
 
 
-def entityRecognition(client, arquivo):
+def entityRecognition(client, text):
     print(optionsTitle('--entity'))
 
-    if arquivo:
+    if text:
 
-        textoTraduzido = traduzir('en', arquivo)
+        textoTraduzido = traduzir('en', text)
         textoBase = {"document": textoTraduzido}
 
         algoritimo = client.algo('StanfordNLP/NamedEntityRecognition/0.2.0')
