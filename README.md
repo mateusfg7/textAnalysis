@@ -30,6 +30,8 @@ _Index_
 
 -   Obter a frequência de determinadas palavras em um texto.
 
+-   Contar número de palavras em um texto.
+
 ## Dependências:
 
 ### _Instale usando o arquivo de dependências do Python:_
