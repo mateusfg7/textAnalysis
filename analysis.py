@@ -1,14 +1,19 @@
-# global modules
+# GLOBAL MODULES
 import sys
 from json import loads as str2json
 
-# local modules
+
+# LOCAL MODULES
 from interface import texts
+
 from auth import getKey
 from auth import createKey
+
 from choice import choices
+
 from utils.fileTreatment import readFile
 from utils.fileTreatment import writeFile
+
 
 try:
     import Algorithmia
