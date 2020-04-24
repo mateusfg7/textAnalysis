@@ -24,8 +24,9 @@ def entityRecognition(client, text):
             sys.exit(1)
         else:
             for name in wordlist:
-                print('Nome: {} \nEntidade: {}\n'.format(
-                    name['word'], traduzir('pt', name['entity']).capitalize()))
+                print(
+                    f'Nome: {name["word"]} \nEntidade: {traduzir("pt", name["entity"]).capitalize()}\n'
+                )
 
     else:
         print("Texto em branco.")
