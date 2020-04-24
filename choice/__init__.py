@@ -12,6 +12,7 @@ from functions.summarizeText import summarizeText
 from functions.countWords import countWords
 from functions.entityRecognition import entityRecognition
 from functions.frequencyOfWords import frequencyOfWords
+from functions.emailExtract import emailExtract
 
 
 def choices(option, client, file):
@@ -53,6 +54,12 @@ def choices(option, client, file):
             elif option == "--frequency":
                 if netCheck():
                     frequencyOfWords(client, fileState)
+                else:
+                    netWarning()
+
+            elif option == "--email":
+                if netCheck():
+                    emailExtract(client, fileState)
                 else:
                     netWarning()
 
