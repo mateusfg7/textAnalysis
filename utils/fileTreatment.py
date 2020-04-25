@@ -1,7 +1,9 @@
 import sys
 
+from typing import Optional
 
-def readFile(file):
+
+def readFile(file: str) -> Optional[str, bool]:
     try:
         with open(file, 'r') as openFile:
             return openFile.read()
@@ -9,7 +11,7 @@ def readFile(file):
         return False
 
 
-def writeFile(name, content):
+def writeFile(name: str, content: str) -> bool:
     with open(name, 'w') as file:
         file.write(content)
         return True

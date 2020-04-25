@@ -1,23 +1,31 @@
 import sys
 
+from typing import Dict, List
+
 from utils.translate import traduzir
 from interface.texts import optionsTitle
 
 
-def entityRecognition(client, text):
+def entityRecognition(client, text: str) -> None:
     print(optionsTitle('--entity'))
+
+    translatedText: str
+    baseText: Dict[str, str]
+    response: Dict[str, list]
+    numberOfEntityFound: int
+    wordlist: List[dict]
 
     if text:
 
-        textoTraduzido = traduzir('en', text)
-        textoBase = {"document": textoTraduzido}
+        translatedText = traduzir('en', text)
+        baseText = {"document": translatedText}
 
         algoritimo = client.algo('StanfordNLP/NamedEntityRecognition/0.2.0')
-        resultado = algoritimo.pipe(textoBase).result
+        response = algoritimo.pipe(baseText).result
 
-        numeroDeEntidadesEncontradas = len(resultado['sentences'])
-        wordlist = resultado['sentences'][numeroDeEntidadesEncontradas -
-                                          1]['detectedEntities']
+        numberOfEntityFound = len(response['sentences'])
+        wordlist = response['sentences'][numberOfEntityFound -
+                                         1]['detectedEntities']
 
         if not wordlist:
             print("Não foram encontradas nenhuma entidade.")
@@ -25,7 +33,7 @@ def entityRecognition(client, text):
         else:
             for name in wordlist:
                 print(
-                    f'Nome: {name["word"]} \nEntidade: {traduzir("pt", name["entity"]).capitalize()}\n'
+                    f'Nome: {name["word"]} \nEntidade: {traduzir("pt", name["entity"]).capitalize()}'
                 )
 
     else:

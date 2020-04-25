@@ -39,9 +39,9 @@ def choices(option, client, file):
                 print(
                     "Esse script precisa de conexão com a internet para ser executado.")
                 sys.exit()
-
         except IndexError:
             print(texts.menu())
+
     else:
         print(f'Arquivo "{file}" não encontrado!\n')
         print(texts.menu())

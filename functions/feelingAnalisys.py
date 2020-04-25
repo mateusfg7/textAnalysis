@@ -1,19 +1,22 @@
 import math
 
+from typing import Dict, List
+
 from utils.translate import traduzir
 from interface.texts import optionsTitle
 
 
-def feelingAnalisys(client, sentenca):
+def feelingAnalisys(client, sentenca: str) -> None:
     print(optionsTitle('--feeling'))
-    texto = {"sentence": traduzir('en', sentenca)}
+
+    text: Dict[str, str] = {"sentence": traduzir('en', sentenca)}
 
     algoritimo = client.algo('nlp/SocialSentimentAnalysis/0.1.4')
-    retorno = algoritimo.pipe(texto).result
+    response: List[dict] = algoritimo.pipe(text).result
 
-    positivo = math.floor(retorno[0]['positive'] * 100)
-    negativo = math.floor(retorno[0]['negative'] * 100)
-    neutro = math.floor(retorno[0]['neutral'] * 100)
+    positive: int = math.floor(response[0]['positive'] * 100)
+    negative: int = math.floor(response[0]['negative'] * 100)
+    neutral: int = math.floor(response[0]['neutral'] * 100)
 
-    print("Positivo: {}%\nNegativo: {}%\nNeutro: {}%".format(
-        positivo, negativo, neutro))
+    print("Positivi: {}%\nNegativo: {}%\nNeutro: {}%".format(
+        positive, negative, neutral))

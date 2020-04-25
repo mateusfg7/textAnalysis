@@ -10,5 +10,5 @@ except ModuleNotFoundError:
     sys.exit(1)
 
 
-def traduzir(language, text):
+def traduzir(language: str, text: str) -> str:
     return translator.translate(text, dest=language).text

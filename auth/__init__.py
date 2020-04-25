@@ -1,5 +1,10 @@
-def getKey(readFile, str2json):
-    strKeys = readFile('auth/keys.json')
+from typing import Optional, Dict
+
+
+def getKey(readFile, str2json) -> Optional[dict, bool]:
+    strKeys: str = readFile('auth/keys.json')
+
+    jsonKeys: Dict[str, str]
     if strKeys:
         jsonKeys = str2json(strKeys)
         return jsonKeys
@@ -7,8 +12,7 @@ def getKey(readFile, str2json):
         return False
 
 
-def createKey(key, writeFile):
-    jsonKeys = f'{"{"}\n "api_key": "{key}"\n{"}"}'
-    strKeys = f''
+def createKey(key: str, writeFile) -> bool:
+    jsonKeys: str = f'{"{"}\n "api_key": "{key}"\n{"}"}'
     writeFile('auth/keys.json', jsonKeys)
     return True

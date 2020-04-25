@@ -1,4 +1,4 @@
-def checkInternetConnection(request: "function") -> bool:
+def checkInternetConnection(request) -> bool:
     try:
         request('https://algorithmia.com/')
         return True

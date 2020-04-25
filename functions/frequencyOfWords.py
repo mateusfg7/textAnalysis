@@ -1,30 +1,35 @@
 import sys
+from typing import List
+
 from interface.texts import optionsTitle
 
 
-def frequencyOfWords(client, texto):
+def frequencyOfWords(client, texto: str) -> None:
     print(optionsTitle('--frequency'))
-    arguments = sys.argv
-    file = arguments[arguments.index('--file') + 1]
+
+    arguments: List[str] = sys.argv
+    file: str = arguments[arguments.index('--file') + 1]
 
     try:
-        wordCount = arguments[arguments.index('--frequency') + 1]
+        wordCount: str = arguments[arguments.index('--frequency') + 1]
     except:
-        print("Você não indicou o número de palavras analisadas!")
+        print("Você não indicou o número de words analisadas!")
         print(
-            f"analysis.py --file {file} --frequency [numero de palavras analisadas]")
+            f"analysis.py --file {file} --frequency [numero de words analisadas]")
         sys.exit(1)
 
-    wordList = [
+    wordList: List[str, bool] = [
         texto,
         wordCount,
         True,
         True
     ]
+
     algoritimo = client.algo('WebPredict/WordFrequencies/0.1.0')
-    resultado = algoritimo.pipe(wordList).result
-    count = 1
-    for palavra in resultado:
-        print(f"{count}ª Palavra mais comum: {palavra['word']}")
-        print(f"Frequência: {palavra['frequency']}\n")
+    response: List[dict] = algoritimo.pipe(wordList).result
+
+    count: int = 1
+    for word in response:
+        print(f"{count}ª Palavra mais comum: {word['word']}")
+        print(f"Frequência: {word['frequency']}\n")
         count += 1

@@ -1,4 +1,4 @@
-def menu():
+def menu() -> str:
     return (
         """
     Use: analysis.py --file [arquivo] [opção]
@@ -19,7 +19,7 @@ def menu():
     )
 
 
-def moduleNotFoundError(moduleName, modulePackage):
+def moduleNotFoundError(moduleName: str, modulePackage: str) -> str:
     return(
         f"""
     Biblioteca '{moduleName}' não foi encontrada.
@@ -28,7 +28,7 @@ def moduleNotFoundError(moduleName, modulePackage):
     )
 
 
-def optionsTitle(option):
+def optionsTitle(option: str) -> str:
     textOfOptions = {
         '--tag': '\nPegando tags...\n',
         '--feeling': '\nFazendo análise de sentimentos...\n',
