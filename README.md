@@ -150,8 +150,12 @@ Frequência: 8
 
     -   [WordFrequencies](https://algorithmia.com/algorithms/WebPredict/WordFrequencies)
 
--   [Diego Oppenheimer ](https://algorithmia.com/algorithms/diego)
+-   [Diego Oppenheimer](https://algorithmia.com/algorithms/diego)
+
     -   [WordCounter](https://algorithmia.com/algorithms/diego/WordCounter)
+
+-   [cindyxiaoxiaoli](https://algorithmia.com/users/cindyxiaoxiaoli)
+    -   [EmailExtractor](https://algorithmia.com/algorithms/cindyxiaoxiaoli/EmailExtractor)
 
 ---
 
