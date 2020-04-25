@@ -35,8 +35,8 @@ except ModuleNotFoundError:
 
 
 arguments = sys.argv
-rangeOfOptions = ['--tag', '--feeling', '--summarize',
-                  '--count', '--entity', '--frequency', '--email', '--help', '-h']
+rangeOfOptions = ['--tag', '--feeling', '--count', '--email',
+                  '--frequency', '--entity', '--summarize', '--help', '-h']
 
 if len(arguments) > 2:
     found = 0
