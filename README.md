@@ -14,7 +14,7 @@ _Index_
     - [Exêmplos de Uso](#exêmplos-de-uso)
 4. [API Key](#conseguir-algorithmia-api-key)
 5. [Créditos](#créditos)
-6. [Doe](#doe-heart-)
+6. [Doe](#doe-heart)
 
 ---
 
