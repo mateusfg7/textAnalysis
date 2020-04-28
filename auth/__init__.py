@@ -1,7 +1,7 @@
 from typing import Optional, Dict
 
 
-def getKey(readFile, str2json) -> Optional[dict, bool]:
+def getKey(readFile, str2json) -> Optional[dict]:
     strKeys: str = readFile('auth/keys.json')
 
     jsonKeys: Dict[str, str]
