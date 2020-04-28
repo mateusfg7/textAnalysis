@@ -3,7 +3,7 @@ import sys
 from typing import Optional
 
 
-def readFile(file: str) -> Optional[str, bool]:
+def readFile(file: str) -> Optional[str]:
     try:
         with open(file, 'r') as openFile:
             return openFile.read()
