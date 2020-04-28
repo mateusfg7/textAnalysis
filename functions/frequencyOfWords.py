@@ -3,6 +3,8 @@ from typing import List
 
 from interface.texts import optionsTitle
 
+from utils.removeStopwords import removeStopwords
+
 
 def frequencyOfWords(client, texto: str) -> None:
     print(optionsTitle('--frequency'))
@@ -18,8 +20,9 @@ def frequencyOfWords(client, texto: str) -> None:
             f"analysis.py --file {file} --frequency [numero de words analisadas]")
         sys.exit(1)
 
+    textWithoutStopwords: str = removeStopwords(texto)
     wordList: List[str, bool] = [
-        texto,
+        textWithoutStopwords,
         wordCount,
         True,
         True
