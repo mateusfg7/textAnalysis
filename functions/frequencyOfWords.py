@@ -20,7 +20,20 @@ def frequencyOfWords(client, texto: str) -> None:
             f"analysis.py --file {file} --frequency [numero de words analisadas]")
         sys.exit(1)
 
-    textWithoutStopwords: str = removeStopwords(texto)
+    stopwords = [' a ', ' com ', ' da ', ' de ', ' do ',
+                 ' e ', ' ele ', ' em ', ' na ', ' no ',
+                 ' o ', ' para ', ' por ', ' que ', ' se ', ' sua ',
+                 ' um ', ' uma ', ' os ', ' ao ', ' mais ', ' quando ',
+                 ' como ', ' das ', ' vem ', ' ser ', ' foi ',  ' pela '
+                 ]
+    stopwordsWithoutSpace = ['a', 'com', 'da', 'de', 'de',
+                             'do', 'e', 'ele', 'em', 'na', 'no',
+                             'o', 'para', 'por', 'que', 'se', 'sua',
+                             'um', 'uma', 'os', 'ao' 'mais', 'quando',
+                             'como', 'das', 'vem', 'ser', 'foi', 'pela'
+                             ]
+    textWithoutStopwords: str = removeStopwords(texto, stopwords)
+
     wordList: List[str, bool] = [
         textWithoutStopwords,
         wordCount,
@@ -31,8 +44,13 @@ def frequencyOfWords(client, texto: str) -> None:
     algoritimo = client.algo('WebPredict/WordFrequencies/0.1.0')
     response: List[dict] = algoritimo.pipe(wordList).result
 
+    responseWithoutStopwords = []
+    for wordInfo in response:
+        if wordInfo['word'] not in stopwordsWithoutSpace:
+            responseWithoutStopwords.append(wordInfo)
+
     count: int = 1
-    for word in response:
+    for word in responseWithoutStopwords:
         print(f"{count}ª Palavra mais comum: {word['word']}")
         print(f"Frequência: {word['frequency']}\n")
         count += 1
