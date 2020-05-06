@@ -18,21 +18,21 @@ from utils.fileTreatment import writeFile
 
 try:
     import Algorithmia
-    keys = getKey(readFile, str2json)
-    if keys:
-        CLIENT = Algorithmia.client(keys['api_key'])
-    else:
-        print('Visite https://github.com/mateusfg7/textAnalysis/blob/master/README.md para saber como criar sua api key.')
-        key = input('Sua api key: ')
-        if createKey(key, writeFile):
-            print('Api key salva com sucesso!')
-            sys.exit()
-        else:
-            print('Um erro ocorreu durante o processo, tente novamente.')
-            sys.exit()
 except ModuleNotFoundError:
     print(texts.moduleNotFoundError('Algorithmia', 'algorithmia'))
     sys.exit(1)
+keys = getKey(readFile, str2json)
+if keys:
+    CLIENT = Algorithmia.client(keys['api_key'])
+else:
+    print('Visite https://github.com/mateusfg7/textAnalysis/blob/master/README.md para saber como criar sua api key.')
+    key = input('Sua api key: ')
+    if createKey(key, writeFile):
+        print('Api key salva com sucesso!')
+        sys.exit()
+    else:
+        print('Um erro ocorreu durante o processo, tente novamente.')
+        sys.exit()
 
 
 arguments = sys.argv
