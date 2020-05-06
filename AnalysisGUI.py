@@ -1,6 +1,7 @@
 # GLOBAL MODULES
 import sys
 
+from os import system as terminal
 from json import loads as str2json
 
 
@@ -35,25 +36,36 @@ else:
         sys.exit()
 
 
-arguments = sys.argv
-rangeOfOptions = ['--tag', '--feeling', '--count', '--email',
-                  '--frequency', '--entity', '--summarize', '--help', '-h']
+terminal('clear')
+print('Passe o caminho do arquivo de texto:')
+file = input('> ')
 
-if len(arguments) > 2:
-    found = 0
-    for option in rangeOfOptions:
-        try:
-            ARGUMENT_POSITION = arguments.index(option)
-            FILE_ARGUMENT_POSITION = arguments.index('--file')
-            choices(option, CLIENT,
-                    arguments[FILE_ARGUMENT_POSITION + 1])
-            found += 1
-        except ValueError:
-            pass
-    if found == 0:
-        print(texts.menu())
-        sys.exit()
+terminal('clear')
+print('Escolha uma função:')
+print(
+    '''
+[1] Obter tags a partir de um texto.
 
-else:
-    print(texts.menu())
-    sys.exit()
+[2] Obter grau de sentimentos positivos, negativos e neutros.
+
+[3] Resumir um texto.
+
+[4] Obter nomes de entidades presentes no texto.
+
+[5] Obter a frequência de determinadas palavras em um texto.
+
+[6] Contar número de palavras em um texto.
+
+''')
+choice = input('> ')
+
+terminal('clear')
+selectChoice = {
+    '1': lambda: choices('--tag', CLIENT, file),
+    '2': lambda: choices('--feeling', CLIENT, file),
+    '3': lambda: choices('--summarize', CLIENT, file),
+    '4': lambda: choices('--count', CLIENT, file),
+    '5': lambda: choices('--entity', CLIENT, file),
+    '6': lambda: choices('--frequency', CLIENT, file),
+}
+selectChoice[choice]()
