@@ -90,8 +90,8 @@ selectChoice = {
     '1': lambda: choices('tag', CLIENT, file),
     '2': lambda: choices('feeling', CLIENT, file),
     '3': lambda: choices('summarize', CLIENT, file),
-    '4': lambda: choices('count', CLIENT, file),
-    '5': lambda: choices('entity', CLIENT, file),
-    '6': lambda: choices('frequency', CLIENT, file),
+    '4': lambda: choices('entity', CLIENT, file),
+    '5': lambda: choices('frequency', CLIENT, file),
+    '6': lambda: choices('count', CLIENT, file),
 }
 selectChoice[choice]()
