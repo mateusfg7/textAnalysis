@@ -18,17 +18,13 @@ from utils.fileTreatment import writeFile
 from utils.colors import colors
 
 
-print(f'Verificando dependencias...\n{colors["reset"]}')
+print(texts.dependencies(colors, 'verify'))
 
 try:
-    import Algorithmia
-    print(
-        f'Algorithmia {colors["green"]}OK{colors["reset"]}'
-    )
+    import Algorithmiaa
+    print(texts.dependencies(colors, 'algorithmiaPass'))
 except ModuleNotFoundError:
-    print(
-        f'Algorithmia {colors["red"]}NOT FOUND{colors["reset"]}'
-    )
+    print(texts.dependencies(colors, 'algorithmiaError'))
     print(
         f'install: https://algorithmia.com/developers/clients/python{colors["reset"]}'
     )
@@ -47,6 +43,7 @@ except ModuleNotFoundError:
         f'install: https://pypi.org/project/googletrans/{colors["reset"]}'
     )
     sys.exit(1)
+exit()
 
 keys = getKey(readFile, str2json)
 if keys:
