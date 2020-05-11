@@ -24,13 +24,13 @@ def choices(option, client, file):
 
                 "c: client ; f: file"
                 optionSelect = {
-                    "--tag": lambda c, f: getTags(c, f),
-                    "--feeling": lambda c, f: feelingAnalisys(c, f),
-                    "--summarize": lambda c, f: summarizeText(c, f),
-                    "--count": lambda c, f: countWords(c, f),
-                    "--entity": lambda c, f: entityRecognition(c, f),
-                    "--frequency": lambda c, f: frequencyOfWords(c, f),
-                    "--email": lambda c, f:  emailExtract(c, f)
+                    "tag": lambda c, f: getTags(c, f),
+                    "feeling": lambda c, f: feelingAnalisys(c, f),
+                    "summarize": lambda c, f: summarizeText(c, f),
+                    "count": lambda c, f: countWords(c, f),
+                    "entity": lambda c, f: entityRecognition(c, f),
+                    "frequency": lambda c, f: frequencyOfWords(c, f),
+                    "email": lambda c, f:  emailExtract(c, f)
                 }
                 optionSelect[option](client, fileState)
 
