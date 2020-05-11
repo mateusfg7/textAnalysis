@@ -17,7 +17,7 @@ from utils.fileTreatment import readFile
 from utils.fileTreatment import writeFile
 
 
-cores = {
+colors = {
     'reset': '\033[0;0;0m',
     'red': '\033[1;31m',
     'liteRed': '\033[1;91m',
@@ -39,33 +39,33 @@ cores = {
     'invert': '\033[;7m',
 }
 
-print(f'Verificando dependencias...\n{cores["reset"]}')
+print(f'Verificando dependencias...\n{colors["reset"]}')
 
 try:
     import Algorithmia
     print(
-        f'Algorithmia {cores["green"]}OK{cores["reset"]}'
+        f'Algorithmia {colors["green"]}OK{colors["reset"]}'
     )
 except ModuleNotFoundError:
     print(
-        f'Algorithmia {cores["red"]}NOT FOUND{cores["reset"]}'
+        f'Algorithmia {colors["red"]}NOT FOUND{colors["reset"]}'
     )
     print(
-        f'install: https://algorithmia.com/developers/clients/python{cores["reset"]}'
+        f'install: https://algorithmia.com/developers/clients/python{colors["reset"]}'
     )
     sys.exit(1)
 
 try:
     import googletrans
     print(
-        f'GoogleTrans {cores["green"]}OK{cores["reset"]}'
+        f'GoogleTrans {colors["green"]}OK{colors["reset"]}'
     )
 except ModuleNotFoundError:
     print(
-        f'GoogleTrans {cores["red"]}NOT FOUND{cores["reset"]}'
+        f'GoogleTrans {colors["red"]}NOT FOUND{colors["reset"]}'
     )
     print(
-        f'install: https://pypi.org/project/googletrans/{cores["reset"]}'
+        f'install: https://pypi.org/project/googletrans/{colors["reset"]}'
     )
     sys.exit(1)
 
