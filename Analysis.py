@@ -17,24 +17,12 @@ from utils.fileTreatment import readFile
 from utils.fileTreatment import writeFile
 from utils.colors import style
 
+from check.checkModules import checkModules
 
-print(texts.modules(style, 'verify'))
 
-try:
+if checkModules(texts, style):
     import Algorithmia
-    print(texts.modules(style, 'algorithmia', 'pass'))
-except ModuleNotFoundError:
-    print(texts.modules(style, 'algorithmia', 'error'))
-    print(texts.modules(style, 'algorithmia', 'install'))
-    sys.exit(1)
-
-try:
     import googletrans
-    print(texts.modules(style, 'googletrans', 'pass'))
-except ModuleNotFoundError:
-    print(texts.modules(style, 'googletrans', 'error'))
-    print(texts.modules(style, 'googletrans', 'install'))
-    sys.exit(1)
 
 keys = getKey(readFile, str2json)
 if keys:
