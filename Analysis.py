@@ -1,21 +1,15 @@
 # GLOBAL MODULES
 import sys
-
 from json import loads as str2json
-
 
 # LOCAL MODULES
 from interface import texts
-
 from auth import getKey
 from auth import createKey
-
 from choice import choices
-
 from utils.fileTreatment import readFile
 from utils.fileTreatment import writeFile
 from utils.colors import style
-
 from check.checkModules import checkModules
 
 
@@ -42,22 +36,7 @@ print('Passe o caminho do arquivo de texto:')
 file = input('> ')
 
 texts.clearAndShowHeader(style)
-print('Escolha uma função:')
-print(
-    '''
-[1] Obter tags a partir de um texto.
-
-[2] Obter grau de sentimentos positivos, negativos e neutros.
-
-[3] Resumir um texto.
-
-[4] Obter nomes de entidades presentes no texto.
-
-[5] Obter a frequência de determinadas palavras em um texto.
-
-[6] Contar número de palavras em um texto.
-
-''')
+print(texts.choicesMenu(style))
 choice = input('> ')
 
 texts.clearAndShowHeader(style)

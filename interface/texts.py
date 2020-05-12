@@ -1,4 +1,4 @@
-def clearAndShowHeader(style: dict):
+def clearAndShowHeader(style: dict) -> 'NoReturn':
     from random import randint
     from os import system as terminal
 
@@ -44,6 +44,26 @@ def clearAndShowHeader(style: dict):
 
     ]
     print(f'{banners[randint(0,3)]}{style["reset"]}\n')
+
+
+def choicesMenu(style: dict) -> str:
+    return (
+        f'''
+Escolha uma função:
+
+{style['bold']}1{style['reset']} < {style['italic']}Obter tags a partir de um texto.{style['reset']}
+
+{style['bold']}2{style['reset']} < {style['italic']}Obter grau de sentimentos positivos, negativos e neutros.{style['reset']}
+
+{style['bold']}3{style['reset']} < {style['italic']}Resumir um texto.{style['reset']}
+
+{style['bold']}4{style['reset']} < {style['italic']}Obter nomes de entidades presentes no texto.{style['reset']}
+
+{style['bold']}5{style['reset']} < {style['italic']}Obter a frequência de determinadas palavras em um texto.{style['reset']}
+
+{style['bold']}6{style['reset']} < {style['italic']}Contar número de palavras em um texto.{style['reset']}
+        '''
+    )
 
 
 def optionsTitle(option: str) -> str:
