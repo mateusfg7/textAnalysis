@@ -1,7 +1,6 @@
 # GLOBAL MODULES
 import sys
 
-from os import system as terminal
 from json import loads as str2json
 
 
@@ -38,11 +37,11 @@ else:
         sys.exit()
 
 
-terminal('clear')
+texts.clearAndShowHeader(style)
 print('Passe o caminho do arquivo de texto:')
 file = input('> ')
 
-terminal('clear')
+texts.clearAndShowHeader(style)
 print('Escolha uma função:')
 print(
     '''
@@ -61,7 +60,7 @@ print(
 ''')
 choice = input('> ')
 
-terminal('clear')
+texts.clearAndShowHeader(style)
 selectChoice = {
     '1': lambda: choices('tag', CLIENT, file),
     '2': lambda: choices('feeling', CLIENT, file),
