@@ -15,35 +15,26 @@ from choice import choices
 
 from utils.fileTreatment import readFile
 from utils.fileTreatment import writeFile
-from utils.colors import colors
+from utils.colors import style
 
 
-print(texts.dependencies(colors, 'verify'))
+print(texts.modules(style, 'verify'))
 
 try:
-    import Algorithmiaa
-    print(texts.dependencies(colors, 'algorithmiaPass'))
+    import Algorithmia
+    print(texts.modules(style, 'algorithmia', 'pass'))
 except ModuleNotFoundError:
-    print(texts.dependencies(colors, 'algorithmiaError'))
-    print(
-        f'install: https://algorithmia.com/developers/clients/python{colors["reset"]}'
-    )
+    print(texts.modules(style, 'algorithmia', 'error'))
+    print(texts.modules(style, 'algorithmia', 'install'))
     sys.exit(1)
 
 try:
     import googletrans
-    print(
-        f'GoogleTrans {colors["green"]}OK{colors["reset"]}'
-    )
+    print(texts.modules(style, 'googletrans', 'pass'))
 except ModuleNotFoundError:
-    print(
-        f'GoogleTrans {colors["red"]}NOT FOUND{colors["reset"]}'
-    )
-    print(
-        f'install: https://pypi.org/project/googletrans/{colors["reset"]}'
-    )
+    print(texts.modules(style, 'googletrans', 'error'))
+    print(texts.modules(style, 'googletrans', 'install'))
     sys.exit(1)
-exit()
 
 keys = getKey(readFile, str2json)
 if keys:

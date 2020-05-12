@@ -11,10 +11,21 @@ def optionsTitle(option: str) -> str:
     return textOfOptions[option]
 
 
-def dependencies(colors: dict, option=None) -> str:
+def modules(style: dict, module: str, message: str = False) -> str:
     texts = {
-        'verify': f'Verificando dependencias...\n{colors["reset"]}',
-        'algorithmiaPass': f'Algorithmia {colors["green"]}OK{colors["reset"]}',
-        'algorithmiaError': f'Algorithmia {colors["red"]}NOT FOUND{colors["reset"]}',
+        'verify': f'Verificando dependencias...\n{style["reset"]}',
+        'algorithmia': {
+            'pass': f'{style["bold"]}Algorithmia {style["green"]}OK{style["reset"]}',
+            'error': f'{style["bold"]}Algorithmia {style["red"]}NOT FOUND{style["reset"]}',
+            'install': f'install: https://algorithmia.com/developers/clients/python{style["reset"]}'
+        },
+        'googletrans': {
+            'pass': f'{style["bold"]}GoogleTrans {style["green"]}OK{style["reset"]}',
+            'error': f'{style["bold"]}GoogleTrans {style["red"]}NOT FOUND{style["reset"]}',
+            'install': f'install: https://pypi.org/project/googletrans/{style["reset"]}',
+        },
     }
-    return texts[option]
+    if message:
+        return texts[module][message]
+
+    return texts[module]
