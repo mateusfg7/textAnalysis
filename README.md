@@ -59,11 +59,12 @@ python3 -m pip install googletran
 ## Uso
 
 Ao executar o arquivo `Analysis.py` irá pedir a chave de autenticação da API Algorithia, para cria-la va ate [API Key](#conseguir-algorithmia-api-key).
-![](doc/gifs/add_api_key.gif)
+![](doc/img/add_api_key.png)
 
 Logo após ira pedir oque vc deseja analisar, se é um arquivo de texto ou se é um texto plano (apenas uma fraze a ser passada no próprio terminal)
-![](doc/gifs/pass_file.gif)
-![](doc/gifs/plain_text.gif)
+![](doc/img/file_menu.png)
+![](doc/img/pass_file.png)
+![](doc/img/plain_text.png)
 
 Depois irá aparecer um menu para escolher qual a função desejada.
 ![](doc/img/menu.png)
@@ -125,7 +126,7 @@ Frequência: 8
    ![step5](doc/img/algorithmia/step5.png)
 
 4. \_Cole sua api key e clique **enter**
-   ![step5](doc/gifs/add_api_key.gif)
+   ![step5](doc/img/add_api_key.png)
 
 > _a api key fica salva em **auth/keys.json**_
 
