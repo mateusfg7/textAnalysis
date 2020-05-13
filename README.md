@@ -71,29 +71,13 @@ Depois irá aparecer um menu para escolher qual a função desejada.
 
 #### Exêmplos de uso:
 
-1 - extrair tags em um texto no arquivo 'turing.txt'
-
-_in:_
-
-```shell
-$ python3 analysis.py --file turing.txt --tag
-```
-
-_out:_
+1 - Opção `2` - extrair tags em um texto no arquivo 'turing.txt'
 
 ```shell
 ['após', 'computação', 'foi', 'para', 'pela', 'química', 'turing', 'uma']
 ```
 
-2 - pegar a frequência das palavras mais comuns em um texto no arquivo 'turing.txt'
-
-_in:_
-
-```shell
-$ python3 analysis.py --file turing.txt --frequency 5
-```
-
-_out:_
+2 - Opção `5` - pegar a frequência das palavras mais comuns em um texto no arquivo 'turing.txt'
 
 ```shell
 1ª Palavra mais comum: de
