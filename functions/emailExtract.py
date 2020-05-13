@@ -1,10 +1,8 @@
-from typing import List
+def emailExtract(client, text: str) -> 'NoReturn':
+    from typing import List
+    from interface import texts
 
-from interface.texts import optionsTitle
-
-
-def emailExtract(client, text: str) -> None:
-    print(optionsTitle('--email'))
+    print(texts.optionsTitle('email'))
 
     algo = client.algo('cindyxiaoxiaoli/EmailExtractor/0.2.0')
     response: List[str] = algo.pipe(text).result

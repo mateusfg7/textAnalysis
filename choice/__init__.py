@@ -15,34 +15,27 @@ from functions.frequencyOfWords import frequencyOfWords
 from functions.emailExtract import emailExtract
 
 
-def choices(option, client, file):
-    fileState = readFile(file)
+def choices(option, client, text):
 
-    if fileState:
-        try:
-            if netCheck(request):
+    try:
+        if netCheck(request):
 
-                "c: client ; f: file"
-                optionSelect = {
-                    "--tag": lambda c, f: getTags(c, f),
-                    "--feeling": lambda c, f: feelingAnalisys(c, f),
-                    "--summarize": lambda c, f: summarizeText(c, f),
-                    "--count": lambda c, f: countWords(c, f),
-                    "--entity": lambda c, f: entityRecognition(c, f),
-                    "--frequency": lambda c, f: frequencyOfWords(c, f),
-                    "--email": lambda c, f:  emailExtract(c, f)
-                }
-                optionSelect[option](client, fileState)
+            "c: client ; t: text"
+            optionSelect = {
+                "tag": lambda c, t: getTags(c, t),
+                "feeling": lambda c, t: feelingAnalisys(c, t),
+                "summarize": lambda c, t: summarizeText(c, t),
+                "count": lambda c, t: countWords(c, t),
+                "entity": lambda c, t: entityRecognition(c, t),
+                "frequency": lambda c, t: frequencyOfWords(c, t),
+                "email": lambda c, t:  emailExtract(c, t)
+            }
+            optionSelect[option](client, text)
 
-            else:
-                print("Você não tem conexão com a internet.")
-                print(
-                    "Esse script precisa de conexão com a internet para ser executado.")
-                sys.exit()
-        except IndexError:
-            print(texts.menu())
-
-    else:
-        print(f'Arquivo "{file}" não encontrado!\n')
+        else:
+            print("Você não tem conexão com a internet.")
+            print(
+                "Esse script precisa de conexão com a internet para ser executado.")
+            sys.exit()
+    except IndexError:
         print(texts.menu())
-        sys.exit(1)

@@ -58,46 +58,26 @@ python3 -m pip install googletran
 
 ## Uso
 
-`analysis.py --file [arquivo] [opção]`
+Ao executar o arquivo `Analysis.py` irá pedir a chave de autenticação da API Algorithia, para cria-la va ate [API Key](#conseguir-algorithmia-api-key).
+![](doc/img/add_api_key.png)
 
-`--tag` pegar tags
+Logo após ira pedir oque vc deseja analisar, se é um arquivo de texto ou se é um texto plano (apenas uma fraze a ser passada no próprio terminal)
+![](doc/img/file_menu.png)
+![](doc/img/pass_file.png)
+![](doc/img/plain_text.png)
 
-`--feeling` obter sentimentos negativos, positivos e neutros
-
-`--summarize` resumir um texto
-
-`--count` contar palavras
-
-`--entity` reconhecer nomes de entidades
-
-`--frequency` calcular a frequência das n palavras mais comuns de um texto
-(`analysis.py --file [arquivo] --frequency [nº de palavras analisadas]`)
+Depois irá aparecer um menu para escolher qual a função desejada.
+![](doc/img/menu.png)
 
 #### Exêmplos de uso:
 
-1 - extrair tags em um texto no arquivo 'turing.txt'
-
-_in:_
-
-```shell
-$ python3 analysis.py --file turing.txt --tag
-```
-
-_out:_
+1 - Opção `2` - extrair tags em um texto no arquivo 'turing.txt'
 
 ```shell
 ['após', 'computação', 'foi', 'para', 'pela', 'química', 'turing', 'uma']
 ```
 
-2 - pegar a frequência das palavras mais comuns em um texto no arquivo 'turing.txt'
-
-_in:_
-
-```shell
-$ python3 analysis.py --file turing.txt --frequency 5
-```
-
-_out:_
+2 - Opção `5` - pegar a frequência das palavras mais comuns em um texto no arquivo 'turing.txt'
 
 ```shell
 1ª Palavra mais comum: de
@@ -119,18 +99,18 @@ Frequência: 8
 ## Conseguir Algorithmia API Key
 
 1. _Entre no site [Algorithmia.com](https://algorithmia.com) e clique em **Try it For Free**_
-   ![step1](doc/screenshots/step1.png)
+   ![step1](doc/img/algorithmia/step1.png)
+
 2. _Preencha as informações e crie sua conta_
-   ![step2](doc/screenshots/step2.png)
-   ![step3](doc/screenshots/step3.png)
+   ![step2](doc/img/algorithmia/step2.png)
+   ![step3](doc/img/algorithmia/step3.png)
+
 3. _Clique no botão **API Keys** e copie a chave gerada automaticamente (**default-key**)_
-   ![step4](doc/screenshots/step4.png)
-   ![step5](doc/screenshots/step5.png)
-4. _Cole sua api key e clique **enter**, se aparecer a mensagem **Api key salva com sucesso!** é porque tudo correu bem._
-   ![step6](doc/screenshots/step6.png)
-   ![step7](doc/screenshots/step7.png)
-5. _Reexecute o script_
-   ![step8](doc/screenshots/step8.png)
+   ![step4](doc/img/algorithmia/step4.png)
+   ![step5](doc/img/algorithmia/step5.png)
+
+4. \_Cole sua api key e clique **enter**
+   ![step5](doc/img/add_api_key.png)
 
 > _a api key fica salva em **auth/keys.json**_
 

@@ -1,18 +1,15 @@
-import math
+def feelingAnalisys(client, text: str) -> 'NoReturn':
+    import math
+    from typing import Dict, List
+    from utils.translate import traduzir
+    from interface import texts
 
-from typing import Dict, List
+    print(texts.optionsTitle('feeling'))
 
-from utils.translate import traduzir
-from interface.texts import optionsTitle
-
-
-def feelingAnalisys(client, sentenca: str) -> None:
-    print(optionsTitle('--feeling'))
-
-    text: Dict[str, str] = {"sentence": traduzir('en', sentenca)}
+    translatedText: Dict[str, str] = {"sentence": traduzir('en', text)}
 
     algoritimo = client.algo('nlp/SocialSentimentAnalysis/0.1.4')
-    response: List[dict] = algoritimo.pipe(text).result
+    response: List[dict] = algoritimo.pipe(translatedText).result
 
     positive: int = math.floor(response[0]['positive'] * 100)
     negative: int = math.floor(response[0]['negative'] * 100)

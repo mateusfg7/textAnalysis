@@ -1,13 +1,12 @@
-import sys
+def entityRecognition(client, text: str) -> 'NoReturn':
+    import sys
 
-from typing import Dict, List
+    from typing import Dict, List
 
-from utils.translate import traduzir
-from interface.texts import optionsTitle
+    from utils.translate import traduzir
+    from interface import texts
 
-
-def entityRecognition(client, text: str) -> None:
-    print(optionsTitle('--entity'))
+    print(texts.optionsTitle('entity'))
 
     translatedText: str
     baseText: Dict[str, str]
