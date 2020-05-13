@@ -47,8 +47,7 @@ def clearAndShowHeader(style: dict) -> 'NoReturn':
 
 
 def choicesMenu(style: dict) -> str:
-    return (
-        f'''
+    return (f'''
 Escolha uma função:
 
 {style['bold']}1{style['reset']} < {style['italic']}Obter tags a partir de um texto.{style['reset']}
@@ -62,8 +61,9 @@ Escolha uma função:
 {style['bold']}5{style['reset']} < {style['italic']}Obter a frequência de determinadas palavras em um texto.{style['reset']}
 
 {style['bold']}6{style['reset']} < {style['italic']}Contar número de palavras em um texto.{style['reset']}
-        '''
-    )
+
+{style['bold']}7{style['reset']} < {style['italic']}Extrair emails presentes no texto.{style['reset']}
+    ''')
 
 
 def optionsTitle(option: str) -> str:
