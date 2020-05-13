@@ -32,8 +32,8 @@ else:
 
 
 texts.clearAndShowHeader(style)
-print('Passe o caminho do arquivo de texto:')
-file = input('> ')
+print('Texto a ser analizado:')
+text = input('> ')
 
 texts.clearAndShowHeader(style)
 print(texts.choicesMenu(style))
@@ -41,11 +41,11 @@ choice = input('> ')
 
 texts.clearAndShowHeader(style)
 selectChoice = {
-    '1': lambda: choices('tag', CLIENT, file),
-    '2': lambda: choices('feeling', CLIENT, file),
-    '3': lambda: choices('summarize', CLIENT, file),
-    '4': lambda: choices('entity', CLIENT, file),
-    '5': lambda: choices('frequency', CLIENT, file),
-    '6': lambda: choices('count', CLIENT, file),
+    '1': lambda: choices('tag', CLIENT, text),
+    '2': lambda: choices('feeling', CLIENT, text),
+    '3': lambda: choices('summarize', CLIENT, text),
+    '4': lambda: choices('entity', CLIENT, text),
+    '5': lambda: choices('frequency', CLIENT, text),
+    '6': lambda: choices('count', CLIENT, text),
 }
 selectChoice[choice]()
