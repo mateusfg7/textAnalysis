@@ -1,38 +1,29 @@
-import sys
-from typing import List
+def frequencyOfWords(client, text: str) -> 'NoReturn':
+    import sys
+    from typing import List
 
-from interface.texts import optionsTitle
+    from interface import texts
 
-from utils.removeStopwords import removeStopwords
+    from utils.removeStopwords import removeStopwords
 
-
-def frequencyOfWords(client, texto: str) -> None:
-    print(optionsTitle('--frequency'))
-
-    arguments: List[str] = sys.argv
-    file: str = arguments[arguments.index('--file') + 1]
-
-    try:
-        wordCount: str = arguments[arguments.index('--frequency') + 1]
-    except:
-        print("Você não indicou o número de words analisadas!")
-        print(
-            f"analysis.py --file {file} --frequency [numero de words analisadas]")
-        sys.exit(1)
+    wordCount: str = input('nº de palavras a ser analisadas\n> ')
+    print(texts.optionsTitle('frequency'))
 
     stopwords = [' a ', ' com ', ' da ', ' de ', ' do ',
                  ' e ', ' ele ', ' em ', ' na ', ' no ',
                  ' o ', ' para ', ' por ', ' que ', ' se ', ' sua ',
                  ' um ', ' uma ', ' os ', ' ao ', ' mais ', ' quando ',
-                 ' como ', ' das ', ' vem ', ' ser ', ' foi ',  ' pela '
+                 ' como ', ' das ', ' vem ', ' ser ', ' foi ',  ' pela ',
+                 ' eu ', ' te '
                  ]
     stopwordsWithoutSpace = ['a', 'com', 'da', 'de', 'de',
                              'do', 'e', 'ele', 'em', 'na', 'no',
                              'o', 'para', 'por', 'que', 'se', 'sua',
                              'um', 'uma', 'os', 'ao' 'mais', 'quando',
-                             'como', 'das', 'vem', 'ser', 'foi', 'pela'
+                             'como', 'das', 'vem', 'ser', 'foi', 'pela',
+                             'eu', 'te'
                              ]
-    textWithoutStopwords: str = removeStopwords(texto, stopwords)
+    textWithoutStopwords: str = removeStopwords(text, stopwords)
 
     wordList: List[str, bool] = [
         textWithoutStopwords,
