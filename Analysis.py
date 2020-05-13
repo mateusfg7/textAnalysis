@@ -32,8 +32,23 @@ else:
 
 
 texts.clearAndShowHeader(style)
-print('Texto a ser analizado:')
-text = input('> ')
+print('Oquê vc deseja analisar?')
+print(f'''
+{style['bold']}1{style['reset']} < {style['italic']} Arquivo de texto. {style['reset']}
+{style['bold']}2{style['reset']} < {style['italic']} Texto plano. {style['reset']}
+''')
+optionToAnalise = input('> ')
+
+if optionToAnalise == '1':
+    fileDirectory = input('Caminho do arquivo:\n> ')
+    text = readFile(fileDirectory)
+    if not text:
+        print('Arquivo não encontrado!')
+        sys.exit()
+else:
+    texts.clearAndShowHeader(style)
+    print('Texto a ser analizado:')
+    text = input('> ')
 
 texts.clearAndShowHeader(style)
 print(texts.choicesMenu(style))
