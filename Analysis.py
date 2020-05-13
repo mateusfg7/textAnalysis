@@ -21,11 +21,13 @@ keys = getKey(readFile, str2json)
 if keys:
     CLIENT = Algorithmia.client(keys['api_key'])
 else:
+    texts.clearAndShowHeader(style)
     print('Visite https://github.com/mateusfg7/textAnalysis/blob/master/README.md para saber como criar sua api key.')
     key = input('Sua api key: ')
     if createKey(key, writeFile):
         print('Api key salva com sucesso!')
-        sys.exit()
+        keys = getKey(readFile, str2json)
+        CLIENT = Algorithmia.client(keys['api_key'])
     else:
         print('Um erro ocorreu durante o processo, tente novamente.')
         sys.exit()
@@ -40,6 +42,7 @@ print(f'''
 optionToAnalise = input('> ')
 
 if optionToAnalise == '1':
+    texts.clearAndShowHeader(style)
     fileDirectory = input('Caminho do arquivo:\n> ')
     text = readFile(fileDirectory)
     if not text:
