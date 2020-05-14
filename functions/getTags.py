@@ -1,5 +1,7 @@
-def getTags(client, text: str) -> 'NoReturn':
-    from typing import List
+from typing import List, NoReturn
+
+
+def getTags(client: 'Client', text: str) -> NoReturn:
     from interface import texts
 
     print(texts.optionsTitle('tag'))
