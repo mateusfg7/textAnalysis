@@ -1,3 +1,5 @@
+from typing import NoReturn
+
 from requests import get as request
 import sys
 
@@ -15,7 +17,7 @@ from functions.frequencyOfWords import frequencyOfWords
 from functions.emailExtract import emailExtract
 
 
-def choices(option, client, text):
+def choices(option: str, client: 'Client', text: str) -> NoReturn:
 
     try:
         if netCheck(request):
