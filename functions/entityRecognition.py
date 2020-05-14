@@ -1,7 +1,8 @@
-def entityRecognition(client, text: str) -> 'NoReturn':
-    import sys
+from typing import Dict, List, NoReturn
 
-    from typing import Dict, List
+
+def entityRecognition(client: 'Client', text: str) -> NoReturn:
+    import sys
 
     from utils.translate import traduzir
     from interface import texts
