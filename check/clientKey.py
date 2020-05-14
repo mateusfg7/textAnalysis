@@ -1,4 +1,7 @@
-def getClientKey(Algorithmia):
+from typing import Union, NoReturn
+
+
+def getClientKey(Algorithmia: 'Module') -> Union['AlgorithmiaClient', NoReturn]:
     from json import loads as str2json
     from auth import getKey
     from utils.fileTreatment import readFile
