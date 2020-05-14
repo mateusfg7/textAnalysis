@@ -1,4 +1,7 @@
-def checkModules(texts: 'module', style: dict) -> bool:
+from typing import Dict, Union, NoReturn
+
+
+def checkModules(texts: 'Module', style: Dict[str, str]) -> Union[bool, NoReturn]:
     import sys
 
     print(texts.modules(style, 'verify'))
