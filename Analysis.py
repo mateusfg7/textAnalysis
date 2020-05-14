@@ -22,10 +22,7 @@ CLIENT = getClientKey(Algorithmia)
 
 texts.clearAndShowHeader(style)
 print('Oquê você deseja analizar?')
-print(f'''
-{style['bold']}1{style['reset']} < {style['italic']} Arquivo de texto. {style['reset']}
-{style['bold']}2{style['reset']} < {style['italic']} Texto plano. {style['reset']}
-''')
+print(texts.textToAnalyse(style))
 optionToAnalise = input('> ')
 
 if optionToAnalise == '1':
