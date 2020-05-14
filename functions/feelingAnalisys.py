@@ -1,6 +1,8 @@
-def feelingAnalisys(client, text: str) -> 'NoReturn':
+from typing import Dict, List, NoReturn
+
+
+def feelingAnalisys(client: 'Client', text: str) -> NoReturn:
     import math
-    from typing import Dict, List
     from utils.translate import traduzir
     from interface import texts
 
