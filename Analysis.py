@@ -12,6 +12,7 @@ from utils.fileTreatment import writeFile
 from utils.colors import style
 from check.checkModules import checkModules
 from check.clientKey import getClientKey
+from check.textToAnalyse import getTextToAnalyse
 
 
 if checkModules(texts, style):
@@ -20,22 +21,7 @@ if checkModules(texts, style):
 
 CLIENT = getClientKey(Algorithmia)
 
-texts.clearAndShowHeader(style)
-print('Oquê você deseja analizar?')
-print(texts.textToAnalyse(style))
-optionToAnalise = input('> ')
-
-if optionToAnalise == '1':
-    texts.clearAndShowHeader(style)
-    fileDirectory = input('Caminho do arquivo:\n> ')
-    text = readFile(fileDirectory)
-    if not text:
-        print('Arquivo não encontrado!')
-        sys.exit()
-else:
-    texts.clearAndShowHeader(style)
-    print('Texto a ser analizado:')
-    text = input('> ')
+TEXT = getTextToAnalyse()
 
 texts.clearAndShowHeader(style)
 print(texts.choicesMenu(style))
@@ -43,12 +29,12 @@ choice = input('> ')
 
 texts.clearAndShowHeader(style)
 selectChoice = {
-    '1': lambda: choices('tag', CLIENT, text),
-    '2': lambda: choices('feeling', CLIENT, text),
-    '3': lambda: choices('summarize', CLIENT, text),
-    '4': lambda: choices('entity', CLIENT, text),
-    '5': lambda: choices('frequency', CLIENT, text),
-    '6': lambda: choices('count', CLIENT, text),
-    '7': lambda: choices('email', CLIENT, text),
+    '1': lambda: choices('tag', CLIENT, TEXT),
+    '2': lambda: choices('feeling', CLIENT, TEXT),
+    '3': lambda: choices('summarize', CLIENT, TEXT),
+    '4': lambda: choices('entity', CLIENT, TEXT),
+    '5': lambda: choices('frequency', CLIENT, TEXT),
+    '6': lambda: choices('count', CLIENT, TEXT),
+    '7': lambda: choices('email', CLIENT, TEXT),
 }
 selectChoice[choice]()
