@@ -1,4 +1,7 @@
-def getTextToAnalyse():
+from typing import Union, NoReturn
+
+
+def getTextToAnalyse() -> Union[str, NoReturn]:
     from utils.fileTreatment import readFile
     from utils.colors import style
     from interface import texts
