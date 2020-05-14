@@ -20,7 +20,6 @@ if checkModules(texts, style):
     import googletrans
 
 CLIENT = getClientKey(Algorithmia)
-
 TEXT = getTextToAnalyse()
 
 texts.clearAndShowHeader(style)

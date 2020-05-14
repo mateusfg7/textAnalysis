@@ -1,4 +1,6 @@
-style = {
+from typing import Dict
+
+style: Dict[str, str] = {
     'reset': '\033[0;0;0m',
     'red': '\033[1;31m',
     'liteRed': '\033[1;91m',
