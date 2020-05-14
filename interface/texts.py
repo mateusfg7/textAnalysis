@@ -1,9 +1,12 @@
-def clearAndShowHeader(style: dict) -> 'NoReturn':
+from typing import Dict, List, NoReturn
+
+
+def clearAndShowHeader(style: Dict[str, str]) -> NoReturn:
     from random import randint
     from os import system as terminal
 
     terminal('clear')
-    banners = [
+    banners: List[str] = [
         f'''
     {style['blue']}
      w                w      db               8 w                  
@@ -46,7 +49,7 @@ def clearAndShowHeader(style: dict) -> 'NoReturn':
     print(f'{banners[randint(0,3)]}{style["reset"]}\n')
 
 
-def choicesMenu(style: dict) -> str:
+def choicesMenu(style: Dict[str, str]) -> str:
     return (f'''
 Escolha uma função:
 
@@ -66,7 +69,7 @@ Escolha uma função:
     ''')
 
 
-def textToAnalyse(style: dict) -> str:
+def textToAnalyse(style: Dict[str, str]) -> str:
     return (f'''
 Oquê você deseja analizar?
 
@@ -88,7 +91,7 @@ def optionsTitle(option: str) -> str:
     return textOfOptions[option]
 
 
-def modules(style: dict, module: str, message: str = False) -> str:
+def modules(style: Dict[str, str], module: str, message: str = False) -> str:
     texts = {
         'verify': f'Verificando dependencias...\n{style["reset"]}',
         'algorithmia': {
