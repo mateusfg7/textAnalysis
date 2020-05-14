@@ -1,5 +1,7 @@
-def emailExtract(client, text: str) -> 'NoReturn':
-    from typing import List
+from typing import NoReturn, List
+
+
+def emailExtract(client: 'Client', text: str) -> NoReturn:
     from interface import texts
 
     print(texts.optionsTitle('email'))
