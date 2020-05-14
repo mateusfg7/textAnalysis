@@ -1,4 +1,7 @@
-def summarizeText(client, text: str) -> 'NoReturn':
+from typing import NoReturn
+
+
+def summarizeText(client: 'Client', text: str) -> NoReturn:
     from utils.translate import traduzir
     from interface import texts
 
