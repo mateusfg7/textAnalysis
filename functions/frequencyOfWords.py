@@ -1,6 +1,8 @@
-def frequencyOfWords(client, text: str) -> 'NoReturn':
+from typing import List, NoReturn
+
+
+def frequencyOfWords(client: 'Client', text: str) -> NoReturn:
     import sys
-    from typing import List
 
     from interface import texts
 
