@@ -2,6 +2,7 @@ from typing import List, NoReturn
 
 
 def frequencyOfWords(client: 'Client', text: str) -> NoReturn:
+    from matplotlib import pyplot as plt
     import sys
 
     from interface import texts
@@ -42,8 +43,22 @@ def frequencyOfWords(client: 'Client', text: str) -> NoReturn:
         if wordInfo['word'] not in stopwordsWithoutSpace:
             responseWithoutStopwords.append(wordInfo)
 
-    count: int = 1
-    for word in responseWithoutStopwords:
-        print(f"{count}ª Palavra mais comum: {word['word']}")
-        print(f"Frequência: {word['frequency']}\n")
-        count += 1
+    print('Deseja exibir um gráfico com a frequencia de cada palavra? [s/n]')
+    graphicChoice = input('> ')
+
+    if graphicChoice == 's':
+        wordsData = []
+        frequencyData = []
+
+        for word in responseWithoutStopwords:
+            wordsData.append(word['word'])
+            frequencyData.append(word['frequency'])
+
+        plt.bar(wordsData, frequencyData)
+        plt.show()
+    else:
+        count: int = 1
+        for word in responseWithoutStopwords:
+            print(f"{count}ª Palavra mais comum: {word['word']}")
+            print(f"Frequência: {word['frequency']}\n")
+            count += 1
