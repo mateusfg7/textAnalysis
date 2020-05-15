@@ -1,9 +1,9 @@
 import sys
 
-from typing import Optional
+from typing import Union
 
 
-def readFile(file: str) -> Optional[str]:
+def readFile(file: str) -> Union[str, bool]:
     try:
         with open(file, 'r') as openFile:
             return openFile.read()
