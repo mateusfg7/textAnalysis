@@ -1,2 +1,3 @@
 algorithmia>=1.2.1 # main library
 googletrans>=2.4.0 # translate
+matplotlib>=3.2.1 # graphic plots
