@@ -104,6 +104,11 @@ def modules(style: Dict[str, str], module: str, message: str = False) -> str:
             'error': f'{style["bold"]}GoogleTrans {style["red"]}NOT FOUND{style["reset"]}',
             'install': f'install: https://pypi.org/project/googletrans/{style["reset"]}',
         },
+        'matplotlib': {
+            'pass': f'{style["bold"]}Matplotlib {style["green"]}OK{style["reset"]}',
+            'error': f'{style["bold"]}Matplotlib {style["red"]}NOT FOUND{style["reset"]}',
+            'install': f'install: https://matplotlib.org/users/installing.html{style["reset"]}'
+        }
     }
     if message:
         return texts[module][message]
