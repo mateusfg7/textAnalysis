@@ -21,6 +21,7 @@ try:
         '-tf': lambda: newFeature(),
     }
     testCases[arguments[1]]()
+    exit()
 except IndexError:
     pass
 
