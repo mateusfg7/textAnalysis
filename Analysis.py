@@ -14,6 +14,13 @@ from check.checkModules import checkModules
 from check.clientKey import getClientKey
 from check.textToAnalyse import getTextToAnalyse
 
+from auto_test.newFeature import newFeature
+
+arguments = sys.argv
+testCases = {
+    '-tf': lambda: newFeature(),
+}
+testCases[arguments[1]]()
 
 if checkModules(texts, style):
     import Algorithmia
