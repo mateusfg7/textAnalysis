@@ -21,4 +21,12 @@ def checkModules(texts: 'Module', style: Dict[str, str]) -> Union[bool, NoReturn
         print(texts.modules(style, 'googletrans', 'install'))
         sys.exit(1)
 
+    try:
+        import matplotlib
+        print(texts.modules(style, 'matplotlib', 'pass'))
+    except ModuleNotFoundError:
+        print(texts.modules(style, 'matplotlib', 'error'))
+        print(texts.modules(style, 'matplotlib', 'install'))
+        sys.exit(1)
+
     return True
