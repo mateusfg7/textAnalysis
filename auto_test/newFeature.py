@@ -1,3 +1,5 @@
+import sys
+
 from typing import NoReturn
 import Algorithmia
 
@@ -7,9 +9,9 @@ from utils.fileTreatment import readFile
 
 def newFeature():
     CLIENT = getClientKey(Algorithmia)
-    TEXT_LoremIpsum = readFile('test/text/loremIpsum.txt')
-    TEXT_EmailAndAddress = readFile('test/text/emailAndAddress.txt')
-    TEXT_Turing = readFile('test/text/turing.txt')
+    TEXT_LoremIpsum = readFile('auto_test/text/loremIpsum.txt')
+    TEXT_EmailAndAddress = readFile('auto_test/text/emailAndAddress.txt')
+    TEXT_Turing = readFile('auto_test/text/turing.txt')
 
     print('\n> PLAIN TEXT')
 
