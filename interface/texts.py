@@ -66,6 +66,8 @@ Escolha uma função:
 {style['bold']}6{style['reset']} < {style['italic']}Contar número de palavras em um texto.{style['reset']}
 
 {style['bold']}7{style['reset']} < {style['italic']}Extrair emails presentes no texto.{style['reset']}
+
+{style['bold']}8{style['reset']} < {style['italic']}Extrair datas presentes no texto.{style['reset']}
     ''')
 
 
@@ -86,7 +88,8 @@ def optionsTitle(option: str) -> str:
         'count': '\nContando palavras...\n',
         'entity': '\nExtraindo entidades...\n',
         'frequency': '\nObtendo frequencia de cada palavra...\n',
-        'email': '\nExtraindo emails no texto...\n'
+        'email': '\nExtraindo emails no texto...\n',
+        'date': '\nExtraindo datas no texto...\n'
     }
     return textOfOptions[option]
 

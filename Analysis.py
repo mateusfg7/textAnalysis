@@ -45,5 +45,6 @@ selectChoice = {
     '5': lambda: choices('frequency', CLIENT, TEXT),
     '6': lambda: choices('count', CLIENT, TEXT),
     '7': lambda: choices('email', CLIENT, TEXT),
+    '8': lambda: choices('date', CLIENT, TEXT)
 }
 selectChoice[choice]()

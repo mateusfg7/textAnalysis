@@ -32,6 +32,10 @@ _Index_
 
 -   Contar número de palavras em um texto.
 
+-   Extrair emails presente no texto.
+
+-   Extrair datas presente no texto.
+
 ## Dependências:
 
 ### _Instale usando o arquivo de dependências do Python:_
@@ -135,7 +139,11 @@ Frequência: 8
     -   [WordCounter](https://algorithmia.com/algorithms/diego/WordCounter)
 
 -   [cindyxiaoxiaoli](https://algorithmia.com/users/cindyxiaoxiaoli)
+
     -   [EmailExtractor](https://algorithmia.com/algorithms/cindyxiaoxiaoli/EmailExtractor)
+
+-   [PetiteProgrammer](https://algorithmia.com/users/PetiteProgrammer)
+    -   [DateExtractor](https://algorithmia.com/algorithms/PetiteProgrammer/DateExtractor)
 
 ---
 

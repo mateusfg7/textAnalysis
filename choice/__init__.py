@@ -15,6 +15,7 @@ from functions.countWords import countWords
 from functions.entityRecognition import entityRecognition
 from functions.frequencyOfWords import frequencyOfWords
 from functions.emailExtract import emailExtract
+from functions.dateExtrac import dateExtractor
 
 
 def choices(option: str, client: 'Client', text: str) -> NoReturn:
@@ -30,7 +31,8 @@ def choices(option: str, client: 'Client', text: str) -> NoReturn:
                 "count": lambda c, t: countWords(c, t),
                 "entity": lambda c, t: entityRecognition(c, t),
                 "frequency": lambda c, t: frequencyOfWords(c, t),
-                "email": lambda c, t:  emailExtract(c, t)
+                "email": lambda c, t:  emailExtract(c, t),
+                "date": lambda c, t: dateExtractor(c, t)
             }
             optionSelect[option](client, text)
 
