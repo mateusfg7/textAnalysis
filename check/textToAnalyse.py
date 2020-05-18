@@ -2,6 +2,7 @@ from typing import Union, NoReturn
 
 
 def getTextToAnalyse() -> Union[str, NoReturn]:
+    import sys
     from utils.fileTreatment import readFile
     from utils.colors import style
     from interface import texts
