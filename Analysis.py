@@ -14,6 +14,7 @@ from check.checkModules import checkModules
 from check.clientKey import getClientKey
 from check.textToAnalyse import getTextToAnalyse
 
+# <start> rules for test
 try:
     from auto_test.newFeature import newFeature
     arguments = sys.argv
@@ -24,6 +25,7 @@ try:
     exit()
 except IndexError:
     pass
+# <end> rules for test
 
 if checkModules(texts, style):
     import Algorithmia
