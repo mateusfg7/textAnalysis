@@ -18,10 +18,10 @@ from check.textToAnalyse import getTextToAnalyse
 try:
     from auto_test.newFeature import newFeature
     arguments = sys.argv
-    testCases = {
+    testFlags = {
         '-tf': lambda: newFeature(),
     }
-    testCases[arguments[1]]()
+    testFlags[arguments[1]]()
     exit()
 except IndexError:
     pass
