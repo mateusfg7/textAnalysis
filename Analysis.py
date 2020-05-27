@@ -36,12 +36,7 @@ if checkModules(texts, style):
     import googletrans
 
 
-def start(getClientKey: Callable[['Module'], Union['AlgorithmiaClient', NoReturn]],
-          getTextToAnalyse: Callable[[], Union[str, NoReturn]],
-          texts: Callable[[Dict[str, str]], NoReturn],
-          choices: Callable[[str, 'Client', str], NoReturn],
-          Algorithmia: 'Module',
-          style: Dict[str, str]) -> NoReturn:
+def start() -> NoReturn:
     """
         The kernel of algorithm
         """
@@ -67,11 +62,4 @@ def start(getClientKey: Callable[['Module'], Union['AlgorithmiaClient', NoReturn
 
 
 if __name__ == "__main__":
-    start(
-        getClientKey,
-        getTextToAnalyse,
-        texts,
-        choices,
-        Algorithmia,
-        style
-    )
+    start()
