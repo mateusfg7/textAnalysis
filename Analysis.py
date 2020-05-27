@@ -21,9 +21,11 @@ from check.textToAnalyse import getTextToAnalyse
 # <start> rules for test
 try:
     from auto_test.newFeature import newFeature
+    from auto_test.unique_test import unique_test
     arguments = sys.argv
     testFlags = {
         '-tf': lambda: newFeature(),
+        '-tu': lambda: unique_test()
     }
     testFlags[arguments[1]]()
     exit()
