@@ -15,6 +15,9 @@ def readFile(file: str) -> Union[str, bool]:
 
 
 def writeFile(name: str, content: str) -> bool:
+    '''
+    write content in file and returns True if all be ok.
+    '''
     with open(name, 'w') as file:
         file.write(content)
         return True
