@@ -13,10 +13,10 @@ except ModuleNotFoundError:
 
 def traduzir(language: str, text: str) -> str:
     '''
-    Translate text to a destined language
-    ex:
-    'en' -> english
-    'pt' -> portuguese
+    Translate text to a destined language\n
+    ex:\n
+    'en' -> english\n
+    'pt' -> portuguese\n
     ...
     '''
 
