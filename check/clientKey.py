@@ -6,8 +6,9 @@ def getClientKey(Algorithmia: 'Module') -> Union['AlgorithmiaClient', NoReturn]:
     from auth import getKey
     from auth import createKey
     from utils.fileTreatment import readFile
-    from interface import texts
+    from utils.fileTreatment import writeFile
     from utils.colors import style
+    from interface import texts
 
     keys = getKey(readFile, str2json)
     if keys:
