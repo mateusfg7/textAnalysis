@@ -4,6 +4,9 @@ from typing import Union
 
 
 def readFile(file: str) -> Union[str, bool]:
+    '''
+    return the content of the file, if file exists, or return False if file not exist. 
+    '''
     try:
         with open(file, 'r') as openFile:
             return openFile.read()
